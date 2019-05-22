@@ -68,7 +68,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 a {
-  color: #2B2D42;
+  color: #D10024;
   font-weight: 500;
   -webkit-transition: 0.2s color;
   transition: 0.2s color;
@@ -84,6 +84,9 @@ ul, ol {
   margin: 0;
   padding: 0;
   list-style: none
+}
+p{
+	color: #000000;
 }
 
 /*----------------------------*\
@@ -257,8 +260,8 @@ textarea.input {
 }
 
 .input-radio input[type="radio"]:checked+label span, .input-checkbox input[type="checkbox"]:checked+label span {
-  background-color: #D10024;
-  border-color: #D10024;
+  background-color: #ffcc80;
+  border-color: #ffcc80;
 }
 
 .input-radio input[type="radio"]:checked+label span:after {
@@ -413,7 +416,7 @@ textarea.input {
 #top-header {
   padding-top: 10px;
   padding-bottom: 10px;
-  background-color: #1E1F29;
+  background-color: #33adff;
 }
 
 .header-links li {
@@ -431,11 +434,11 @@ textarea.input {
 }
 
 .header-links li a:hover {
-  color: #D10024;
+  color: #ffcc80;
 }
 
 .header-links li i {
-  color: #D10024;
+  color: #ffcc80;
   margin-right: 5px;
 }
 
@@ -446,7 +449,7 @@ textarea.input {
 #header {
   padding-top: 15px;
   padding-bottom: 15px;
-  background-color: #15161D;
+  background-color: #4db8ff;
 }
 
 .header-logo {
@@ -482,7 +485,7 @@ textarea.input {
 .header-search form .search-btn {
   height: 40px;
   width: 100px;
-  background: #D10024;
+  background: #ffcc80;
   color: #FFF;
   font-weight: 700;
   border: none;
@@ -534,7 +537,7 @@ textarea.input {
   border-radius: 50%;
   font-size: 10px;
   color: #FFF;
-  background-color: #D10024;
+  background-color: #ffcc80;
 }
 
 .header-ctn .menu-toggle {
@@ -592,7 +595,7 @@ textarea.input {
   display: inline-block;
   width: calc(50% - 0px);
   padding: 12px;
-  background-color: #D10024;
+  background-color: #ffcc80;
   color: #FFF;
   text-align: center;
   font-weight: 700;
@@ -620,9 +623,9 @@ textarea.input {
 ===========================================================*/
 
 #navigation {
-  background: #FFF;
-  border-bottom: 2px solid #E4E7ED;
-  border-top: 3px solid #D10024;
+  background: #fff;
+  border-bottom: 2px solid #ffcc80;
+  border-top: 3px solid #ffcc80;
 }
 
 /*----------------------------*\
@@ -638,7 +641,7 @@ textarea.input {
 }
 
 .main-nav>li>a:hover, .main-nav>li>a:focus, .main-nav>li.active>a {
-  color: #D10024;
+  color: #000;
   background-color: transparent;
 }
 
@@ -647,7 +650,7 @@ textarea.input {
   display: block;
   width: 0%;
   height: 2px;
-  background-color: #D10024;
+  background-color: #ffcc80;
   -webkit-transition: 0.2s all;
   transition: 0.2s all;
 }
@@ -672,7 +675,7 @@ textarea.input {
     position: fixed;
     left: 0;
     top: 0;
-    background: #15161D;
+    background: #ffcc80;
     height: 100vh;
     max-width: 250px;
     width: 0%;
@@ -704,7 +707,7 @@ textarea.input {
   }
   .main-nav>li>a {
     padding: 15px;
-    color: #FFF;
+    color: #000;
   }
 }
 
@@ -725,7 +728,7 @@ textarea.input {
   bottom: 0;
   left: 0px;
   width: 60%;
-  background: #D10024;
+  background: #000;
   opacity: 0.9;
   -webkit-transform: skewX(-45deg);
   -ms-transform: skewX(-45deg);
@@ -739,7 +742,7 @@ textarea.input {
   bottom: 0;
   left: 1px;
   width: 100%;
-  background: #D10024;
+  background: #000;
   opacity: 0.9;
   -webkit-transform: skewX(-45deg) translateX(-100%);
   -ms-transform: skewX(-45deg) translateX(-100%);
@@ -807,7 +810,7 @@ textarea.input {
   display: inline-block;
   width: 100px;
   height: 100px;
-  background: #D10024e6;
+  background: #000 ;
   text-align: center;
   border-radius: 50%;
   margin: 0px 5px;
@@ -952,7 +955,7 @@ textarea.input {
 }
 
 .product .product-body .product-rating>i.fa-star {
-  color: #ef233c;
+  color: #D10024;
 }
 
 .product .product-body .product-rating:after {
@@ -1430,7 +1433,7 @@ textarea.input {
 }
 
 #product-imgs .product-preview.slick-current {
-  border-color: #D10024;
+  border-color: #000;
 }
 
 #product-imgs .slick-prev {
@@ -1480,7 +1483,7 @@ textarea.input {
 }
 
 .product-details .product-rating>i.fa-star {
-  color: #D10024;
+  color: #000;
 }
 
 .product-details .review-link {
@@ -1492,7 +1495,7 @@ textarea.input {
   font-size: 24px;
   margin-top: 10px;
   margin-bottom: 15px;
-  color: #D10024;
+  color: #000;
 }
 
 .product-details .product-price .product-old-price {
@@ -1506,7 +1509,7 @@ textarea.input {
   text-transform: uppercase;
   font-weight: 700;
   margin-left: 30px;
-  color: #D10024;
+  color: #000;
 }
 
 .product-details .product-options {
@@ -1900,7 +1903,7 @@ textarea.input {
 
 .order-summary .order-col .order-total {
   font-size: 24px;
-  color: #D10024;
+  color: #000;
 }
 
 .order-details .payment-method {
@@ -2002,12 +2005,12 @@ textarea.input {
 ===========================================================*/
 
 #footer {
-  background: #15161D;
+  background: #4db8ff;
   color: #B9BABC;
 }
 
 #bottom-footer {
-  background: #1E1F29;
+  background: #33adff;
 }
 
 .footer {
@@ -2015,7 +2018,7 @@ textarea.input {
 }
 
 .footer .footer-title {
-  color: #FFF;
+  color: #00000;
   text-transform: uppercase;
   font-size: 18px;
   margin: 0px 0px 30px;
@@ -2026,18 +2029,18 @@ textarea.input {
 }
 
 .footer-links li a {
-  color: #B9BABC;
+  color: #000000;
 }
 
 .footer-links li i {
   margin-right: 15px;
-  color: #D10024;
+  color: #0000000;
   width: 14px;
   text-align: center;
 }
 
 .footer-links li a:hover {
-  color: #D10024;
+  color: #ffcc80;
 }
 
 .copyright {
@@ -2052,7 +2055,7 @@ textarea.input {
 }
 
 .footer-payments li a {
-  color: #15161D;
+  color: #000000;
   font-size: 36px;
   display: block;
 }
