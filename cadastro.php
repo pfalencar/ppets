@@ -36,6 +36,23 @@
 
     </head>
 	<body>
+		
+	<?php  
+
+		$id;
+		$nome;
+		$sobrenome;
+		$email;
+		$endereco;
+		$cidade;
+		$pais;
+		$cep;
+		$telefone;
+		$notas;
+
+		require("conexaoSQL.php");
+
+	?>
 		<!-- HEADER -->
 		<header>
 			<!-- TOP HEADER -->
