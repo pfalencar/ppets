@@ -177,18 +177,32 @@
 					
 					<?php  
 		
-						if (isset($_POST['nome'])&&isset($_POST['login'])&&isset($_POST['pass'])) {
-							$email = $_POST['login'];
-							$senha = $_POST['pass'];
-							$nome = $_POST['nome'];
-							include("conexaoSQL.php");
+						
 
-							session_start();
-							try {
-							$sql = "INSERT INTO  cliente(nome_completo,email,senha) values($nome,$email,$senha)";
+			
+						if (isset($_POST['nome'])&&isset($_POST['login'])&&isset($_POST['senha'])) {
+							$nome = $_POST['nome'];
+							$email = $_POST['login'];
+							$senha = $_POST['senha'];
 							
-							} catch (Exception $e) {
-							
+							$servername = "localhost";
+							$database = "ppets";
+							$user = "root";
+							$passwd = "";
+
+							$conn = new mysqli($servername,$user,$passwd,$database);
+							if ($conn->connect_error) {
+								die("Conexão falhou: ".$conn->connect_error);
+							}
+							//include("conexaoSQL.php");
+							//session_start();
+					
+							$sql = "INSERT INTO  cliente(nome_completo,email,senha) values('$nome','$email','$senha');";
+							$result = $conn -> query($sql);
+							if ($conn -> query($sql) === true) {
+								echo "Dados incluídos com sucesso";
+							} else {
+								echo "ERRO!";
 							}
 						}
 						
@@ -198,7 +212,7 @@
 						
 
 					?>
-					Novo usuario cadastrado
+					
 				</div>
 				<!-- /row -->
 			</div>
