@@ -5,7 +5,10 @@ $database = "ppets";
 $user = "root";
 $passwd = "";
 
-mysql_pconnect($servername,$user,$passwd);
-mysql_select_db($database);
+$conn = new mysqli($servername,$user,$passwd,$database);
+if ($conn->connect_error) {
+	die("Conexão falhou: ".$conn->connect_error);
+}
+
 
 ?>

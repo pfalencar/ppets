@@ -37,22 +37,8 @@
     </head>
 	<body>
 		
-	<?php  
+	
 
-		$id;
-		$nome;
-		$sobrenome;
-		$email;
-		$endereco;
-		$cidade;
-		$pais;
-		$cep;
-		$telefone;
-		$notas;
-
-		require("conexaoSQL.php");
-
-	?>
 		<!-- HEADER -->
 		<header>
 			<!-- TOP HEADER -->
@@ -189,6 +175,30 @@
 				<!-- row -->
 				<div class="row">
 					
+					<?php  
+		
+						if (isset($_POST['nome'])&&isset($_POST['login'])&&isset($_POST['pass'])) {
+							$email = $_POST['login'];
+							$senha = $_POST['pass'];
+							$nome = $_POST['nome'];
+							include("conexaoSQL.php");
+
+							session_start();
+							try {
+							$sql = "INSERT INTO  cliente(nome_completo,email,senha) values($nome,$email,$senha)";
+							
+							} catch (Exception $e) {
+							
+							}
+						}
+						
+						
+						
+
+						
+
+					?>
+					Novo usuario cadastrado
 				</div>
 				<!-- /row -->
 			</div>

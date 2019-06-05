@@ -36,6 +36,27 @@
 
     </head>
 	<body>
+		
+	<?php  
+		if (isset($_POST['login'])&&isset($_POST['pass'])) {
+			$email = $_POST['login'];
+			$senha = $_POST['pass'];
+			include("conexaoSQL.php");
+
+			session_start();
+		}
+		try {
+			$sql = "INSERT INTO  cliente "
+		} catch (Exception $e) {
+			
+		}
+		
+		
+
+		
+
+	?>
+
 		<!-- HEADER -->
 		<header>
 			<!-- TOP HEADER -->
@@ -47,9 +68,7 @@
 						<li><a href="#"><i class="fa fa-map-marker"></i> </a></li>
 					</ul>
 					<ul class="header-links pull-right">
-
 						<li><a href="#"><i class="fa fa-dollar"></i> BRL</a></li>
-
 						<li><a href="#"><i class="fa fa-user-o"></i> Minha Conta</a></li>
 					</ul>
 				</div>
@@ -65,11 +84,8 @@
 						<!-- LOGO -->
 						<div class="col-md-3">
 							<div class="header-logo">
-
 								<a href="index.html" class="logo">
 									<img src="./img/logo_perfect.jpg" alt="">
-
-
 								</a>
 							</div>
 						</div>
@@ -88,10 +104,7 @@
 										<option value="1">Roedores</option>
 									</select>
 									<input class="input" placeholder="Pesquise algo aqui">
-
 									<a href="store.html"><button class="search-btn">Buscar</button></a>
-
-									<button class="search-btn">Buscar</button>
 								</form>
 							</div>
 						</div>
@@ -109,9 +122,6 @@
 									</a>
 								</div>
 								<!-- /Wishlist -->
-
-							
-								
 
 								<!-- Cart -->
 								<div class="dropdown">
@@ -151,7 +161,6 @@
 										<div class="cart-btns">
 											<a href="#">Ver Carrinho</a>
 											<a href="checkout.html">Finalizar  <i class="fa fa-arrow-circle-right"></i></a>
-											<a href="#">Finalizar  <i class="fa fa-arrow-circle-right"></i></a>
 										</div>
 									</div>
 								</div>
@@ -176,40 +185,6 @@
 			<!-- /MAIN HEADER -->
 		</header>
 		<!-- /HEADER -->
-		
-		<div class="box-parent-login">
-	<div class="well bg-white box-login">
-		<h1 class="ls-login-logo">Cadastro</h1>
-		<form role="form" action="cadastro.php" method="post">
-			
- 
-				<div class="form-group ls-login-user">
-					<label for="userLogin">Nome</label><br>
-					<input class="form-control ls-login-bg-user input-lg" id="userNome" type="text" name="nome" aria-label="Nome" placeholder="Nome">
-				</div>
-				
-				<div class="form-group ls-login-user">
-					<label for="userLogin">E-mail</label><br>
-					<input class="form-control ls-login-bg-user input-lg" id="userEmail" type="text" name="login" aria-label="Email" placeholder="Email">
-				</div>
- 
-				<div class="form-group ls-login-password">
-					<label for="userPassword">Senha</label><br>
-					<input class="form-control ls-login-bg-password input-lg" id="userPassword" name="senha" type="password" aria-label="Senha" placeholder="Senha">
-				</div>
-				<div class="form-group ls-login-password">
-					<label for="userPassword">Confirme sua senha</label><br>
-					<input class="form-control ls-login-bg-password input-lg" id="userPassword" type="password" aria-label="Senha" placeholder="Senha">
-				</div>
-				
- 
-				<input type="submit" value="Cadastrar" class="btn btn-primary btn-lg btn-block">
-				
- 
-		
-		</form>
-	</div>
-</div>
 
 		<!-- SECTION -->
 		<div class="section">
@@ -224,8 +199,6 @@
 			<!-- /container -->
 		</div>
 		<!-- /SECTION -->
-
-
 
 		<!-- FOOTER -->
 		<footer id="footer">
@@ -256,11 +229,6 @@
 									<li><a href="store.html">Alimentação</a></li>
 									<li><a href="store.html">Lazer</a></li>
 									<li><a href="store.html">Acessórios</a></li>
-									<li><a href="#">Ofertas</a></li>
-									<li><a href="#">Limpeza</a></li>
-									<li><a href="#">Alimentação</a></li>
-									<li><a href="#">Lazer</a></li>
-									<li><a href="#">Acessórios</a></li>
 								</ul>
 							</div>
 						</div>
@@ -285,7 +253,6 @@
 								<ul class="footer-links">
 									<li><a href="#">Minha Conta</a></li>
 									<li><a href="checkout.html">Ver Carrinho</a></li>
-									<li><a href="#">Ver Carrinho</a></li>
 									<li><a href="#">Lista de Desejos</a></li>
 									<li><a href="#">Rastrear meu Pedido</a></li>
 									<li><a href="#">Ajuda</a></li>
