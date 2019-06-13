@@ -1,0 +1,83 @@
+create database ppets;
+use ppets;
+
+create table cliente (
+  cod_cliente int not null auto_increment,
+  nome_completo varchar(50),
+  email varchar(30),
+  senha varchar(15),
+  PRIMARY KEY (cod_cliente)
+);
+
+create table endereco_entrega (
+  cod_endereco_entrega int not null,
+  nome_completo varchar(50),
+  email varchar(30),
+  endereco varchar(50),
+  cep varchar(9),
+  cidade varchar(50),
+  estado varchar(30),
+  pais varchar(30),
+  telefone varchar(15),
+  PRIMARY KEY (cod_endereco_entrega)
+);
+
+create table endereco_cobranca (
+  cod_endereco_cobranca int not null,
+  nome_completo varchar(50),
+  email varchar(30),
+  endereco varchar(50),
+  cep varchar(9),
+  cidade varchar(50),
+  estado varchar(30),
+  pais varchar(30),
+  telefone varchar(15),
+  PRIMARY KEY (cod_endereco_cobranca)
+);
+
+create table produto (
+  cod_produto int not null,
+  nome varchar(50),
+  valor Decimal(4,2),
+  descricao varchar(100),
+  cor varchar(10),
+  tamanho varchar(10),
+  categoria varchar(30),
+  classificacao varchar(30),
+  PRIMARY KEY (cod_produto)
+);
+
+create table item_pedido (
+  cod_item_pedido int not null,
+  cod_produto int not null,
+  num_pedido int not null,  
+  data_pedido DATETIME NOT NULL,
+  PRIMARY KEY (cod_item_pedido),
+  FOREIGN KEY (cod_produto) REFERENCES produto(cod_produto)
+);
+
+create table pagamento (
+  cod_pagamento  int not null,
+  forma_pagamento varchar(30),
+  vencimento DATETIME NOT NULL,
+  PRIMARY KEY (cod_pagamento)
+);
+
+create table pedido (
+  cod_pedido int not null,
+  cod_cliente int not null,
+  cod_endereco_entrega int not null,
+  cod_endereco_cobranca int not null,
+  cod_pagamento int not null,
+  num_pedido int not null,
+  valor_total decimal(4,2),
+  data DATETIME NOT NULL,
+  PRIMARY KEY (cod_pedido),
+  FOREIGN KEY (cod_cliente) REFERENCES cliente(cod_cliente),
+  FOREIGN KEY (cod_endereco_entrega) REFERENCES endereco_entrega(cod_endereco_entrega),
+  FOREIGN KEY (cod_endereco_cobranca) REFERENCES endereco_cobranca(cod_endereco_cobranca),
+  FOREIGN KEY (cod_pagamento) REFERENCES pagamento(cod_pagamento)
+);
+
+
+  
