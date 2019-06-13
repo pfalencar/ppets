@@ -1,8 +1,8 @@
 <?php 
 
 define('HOST', 'localhost');
-define('USUARIO', 'patricia');
-define('SENHA' ,'TheCGs@l10s');
+define('USUARIO', 'root');
+define('SENHA' ,'');
 define('DB', 'ppets');
 
 

@@ -173,30 +173,33 @@
 							<div class="section-title">
 								<h3 class="title">Endereço de cobrança</h3>
 							</div>
-							<div class="form-group">
-								<input class="input" type="text" name="first-name" placeholder="Primeiro Nome">
-							</div>
-							<div class="form-group">
-								<input class="input" type="text" name="last-name" placeholder="Último nome">
-							</div>
-							<div class="form-group">
-								<input class="input" type="email" name="email" placeholder="E-mail">
-							</div>
-							<div class="form-group">
-								<input class="input" type="text" name="address" placeholder="Endereço">
-							</div>
-							<div class="form-group">
-								<input class="input" type="text" name="city" placeholder="Cidade">
-							</div>
-							<div class="form-group">
-								<input class="input" type="text" name="country" placeholder="País">
-							</div>
-							<div class="form-group">
-								<input class="input" type="text" name="zip-code" placeholder="CEP">
-							</div>
-							<div class="form-group">
-								<input class="input" type="tel" name="tel" placeholder="Telefone">
-							</div>
+							<form role="form" action="checkout.php" method="post">
+								<div class="form-group">
+									<input class="input" type="text" name="nomecompleto" placeholder="Nome Completo">
+								</div>
+								<div class="form-group">
+									<input class="input" type="email" name="email" placeholder="E-mail">
+								</div>
+								<div class="form-group">
+									<input class="input" type="text" name="address" placeholder="Endereço">
+								</div>
+								<div class="form-group">
+									<input class="input" type="text" name="zipcode" placeholder="CEP">
+								</div>
+								<div class="form-group">
+									<input class="input" type="text" name="city" placeholder="Cidade">
+								</div>
+								<div class="form-group">
+									<input class="input" type="text" name="state" placeholder="Estado">
+								</div>
+								<div class="form-group">
+									<input class="input" type="text" name="country" placeholder="País">
+								</div>							
+								<div class="form-group">
+									<input class="input" type="tel" name="tel" placeholder="Telefone">
+								</div>
+								<input type="submit" value="Cadastrar" class="btn btn-primary btn-lg btn-block">
+							</form>
 							<div class="form-group">
 								<div class="input-checkbox">
 									<input type="checkbox" id="create-account">
@@ -205,7 +208,7 @@
 										Criar conta?
 									</label>
 									<div class="caption">
-										<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt.</p>
+										<p>Senha:</p>
 										<input class="input" type="password" name="password" placeholder="Entre com a sua Senha">
 									</div>
 								</div>
@@ -224,30 +227,29 @@
 									<span></span>
 									Entregar em um endereço diferente?
 								</label>
-								<div class="caption">
-									<div class="form-group">
-								<input class="input" type="text" name="first-name" placeholder="Primeiro Nome">
+								<div class="form-group">
+								<input class="input" type="text" name="nomecompletoentrega" placeholder="Nome Completo">
 							</div>
 							<div class="form-group">
-								<input class="input" type="text" name="last-name" placeholder="Último nome">
+								<input class="input" type="email" name="emailentrega" placeholder="E-mail">
 							</div>
 							<div class="form-group">
-								<input class="input" type="email" name="email" placeholder="E-mail">
+								<input class="input" type="text" name="addressentrega" placeholder="Endereço">
 							</div>
 							<div class="form-group">
-								<input class="input" type="text" name="address" placeholder="Endereço">
+								<input class="input" type="text" name="zipcodeentrega" placeholder="CEP">
 							</div>
 							<div class="form-group">
-								<input class="input" type="text" name="city" placeholder="Cidade">
+								<input class="input" type="text" name="cityentrega" placeholder="Cidade">
 							</div>
 							<div class="form-group">
-								<input class="input" type="text" name="country" placeholder="País">
+								<input class="input" type="text" name="stateentrega" placeholder="Estado">
 							</div>
 							<div class="form-group">
-								<input class="input" type="text" name="zip-code" placeholder="CEP">
-							</div>
+								<input class="input" type="text" name="countryentrega" placeholder="País">
+							</div>							
 							<div class="form-group">
-								<input class="input" type="tel" name="tel" placeholder="Telefone">
+								<input class="input" type="tel" name="telentrega" placeholder="Telefone">
 							</div>
 								</div>
 							</div>
