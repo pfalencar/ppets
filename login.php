@@ -15,11 +15,17 @@ include 'conexaoSQL.php';
 					$_SESSION['login'] = $email;
 					header('Location: index.php');
 					exit();
+				}else{
+					echo"<script language='javascript' type='text/javascript'>
+          			alert('Nenhum Usuario Encontrado');window.location
+          			.href='blankLogin.php'</script>";
+					exit();
 				}
 			} catch (Exception $e) {
-				header('Location: index.php');
-				echo "<script language='javascript' type='text/javascript'>alert('Nenhum Usuario Encontrado')</script>";
-				exit();
+				echo"<script language='javascript' type='text/javascript'>
+          			alert('Erro ao Selecionar Usuario');window.location
+          			.href='blankLogin.php'</script>";
+					exit();
 			}
 		}
 		

@@ -7,7 +7,7 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		 <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
 
-		<title>Electro - HTML Ecommerce Template</title>
+		<title>PPETs - Loja de Pet Shop</title>
 
  		<!-- Google font -->
  		<link href="https://fonts.googleapis.com/css?family=Montserrat:400,500,700" rel="stylesheet">
@@ -54,7 +54,7 @@
 							?><a href="minhaConta.php"></a>	
 							<?php
 							} else {
-							?><a href="blankLogin.html"></a>	
+							?><a href="blankLogin.php"></a>	
 							<?php
 							}
 						 	?>
@@ -82,8 +82,8 @@
 						<!-- LOGO -->
 						<div class="col-md-3">
 							<div class="header-logo">
-								<a href="#" class="logo">
-									<img src="./img/logo.png" alt="">
+								<a href="index.php" class="logo">
+									<img src="./img/logo_perfect.jpg" alt="">
 								</a>
 							</div>
 						</div>
@@ -102,7 +102,7 @@
 										<option value="1">Roedores</option>
 									</select>
 									<input class="input" placeholder="Pesquise algo aqui">
-									<button class="search-btn">Buscar</button>
+									<a href="store.php"><button class="search-btn">Buscar</button></a>
 								</form>
 							</div>
 						</div>
@@ -111,8 +111,15 @@
 						<!-- ACCOUNT -->
 						<div class="col-md-3 clearfix">
 							<div class="header-ctn">
-							
-								
+								<!-- Wishlist -->
+								<div>
+									<a href="#">
+										<i class="fa fa-heart-o"></i>
+										<span>Lista de Desejos</span>
+										<div class="qty">2</div>
+									</a>
+								</div>
+								<!-- /Wishlist -->
 
 								<!-- Cart -->
 								<div class="dropdown">
@@ -151,7 +158,7 @@
 										</div>
 										<div class="cart-btns">
 											<a href="#">Ver Carrinho</a>
-											<a href="#">Finalizar  <i class="fa fa-arrow-circle-right"></i></a>
+											<a href="checkout.php">Finalizar  <i class="fa fa-arrow-circle-right"></i></a>
 										</div>
 									</div>
 								</div>

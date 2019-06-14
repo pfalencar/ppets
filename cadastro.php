@@ -13,13 +13,17 @@
 							
 							
 	$sql = "INSERT INTO  cliente(nome_completo,email,senha) values('$nome','$email','$senha');";
-	$result = $conn -> query($sql);
+	
 		if ($conn -> query($sql) === true) {
-			header("Location: index.php");
-			echo "<script>alert('Dados Incluidos com Sucesso')</script>";
+			$_SESSION['login'] = $email;
+			echo"<script language='javascript' type='text/javascript'>
+          	alert('Dados Cadastrados com Sucesso!');window.location
+          	.href='index.php'</script>";
 			exit();
 		} else {
-			echo "<script>alert('ERRO!')</script>";
+			echo"<script language='javascript' type='text/javascript'>
+          	alert('Não foi possível cadastrar esse usuário');window.location
+          	.href='blankCadastro.php'</script>";
 			exit();
 		}
 	}						

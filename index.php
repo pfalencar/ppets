@@ -66,7 +66,7 @@
 							<?php
 							else:
 							?>
-							<a href="blankLogin.html"><?php echo "Minha Conta"; ?></a>	
+							<a href="blankLogin.php"><?php echo "Minha Conta"; ?></a>	
 							<?php
 							endif;
 							?>
@@ -87,7 +87,7 @@
 						<!-- LOGO -->
 						<div class="col-md-3">
 							<div class="header-logo">
-								<a href="index.html" class="logo">
+								<a href="index.php" class="logo">
 									<img src="./img/logo_perfect.jpg" alt="">
 								</a>
 							</div>
@@ -107,7 +107,7 @@
 										<option value="1">Roedores</option>
 									</select>
 									<input class="input" placeholder="Pesquise algo aqui">
-									<a href="store.html"><button class="search-btn">Buscar</button></a>
+									<a href="store.php"><button class="search-btn">Buscar</button></a>
 								</form>
 							</div>
 						</div>
@@ -163,7 +163,7 @@
 										</div>
 										<div class="cart-btns">
 											<a href="#">Ver Carrinho</a>
-											<a href="checkout.html">Finalizar  <i class="fa fa-arrow-circle-right"></i></a>
+											<a href="checkout.php">Finalizar  <i class="fa fa-arrow-circle-right"></i></a>
 										</div>
 									</div>
 								</div>
