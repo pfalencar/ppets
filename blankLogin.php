@@ -192,7 +192,7 @@
 		<div class="box-parent-login">
 	<div class="well bg-white box-login">
 		<h1 class="ls-login-logo">Minha Conta</h1>
-		<form role="form" action="login.php" method="post">
+		<form role="form" action="php/login.php" method="post">
 			
  
 				<div class="form-group ls-login-user">

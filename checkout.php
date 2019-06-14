@@ -57,7 +57,14 @@
 						<li><a href="#"><i class="fa fa-map-marker"></i> </a></li>
 					</ul>
 					<ul class="header-links pull-right">
-						<li><a href="#"><i class="fa fa-dollar"></i> BRL</a></li>
+						<?php  
+							if (isset($_SESSION['login']) && $_SESSION['login']=='admin'):						
+						?>
+						<li><a href="blankCadastroProduto.php"><?php echo "Novo Produto"; ?></a></li>	
+						<?php
+							endif;
+						?>		
+					<li><a href="#"><i class="fa fa-dollar"></i> BRL</a></li>
 						<li>
 							<?php 
 							if (isset($_SESSION['login'])):
@@ -193,97 +200,42 @@
 				<div class="row">
 
 					<div class="col-md-7">
+						<form action="php/cadastroEndereco.php" method="POST">
 						<!-- Billing Details -->
 						<div class="billing-details">
+							
 							<div class="section-title">
 								<h3 class="title">Endereço de cobrança</h3>
 							</div>
-							<div class="form-group">
-								<input class="input" type="text" name="first-name" placeholder="Primeiro Nome">
-							</div>
-							<div class="form-group">
-								<input class="input" type="text" name="last-name" placeholder="Último nome">
-							</div>
-							<div class="form-group">
-								<input class="input" type="email" name="email" placeholder="E-mail">
-							</div>
-							<div class="form-group">
-								<input class="input" type="text" name="address" placeholder="Endereço">
-							</div>
-							<div class="form-group">
-								<input class="input" type="text" name="city" placeholder="Cidade">
-							</div>
-							<div class="form-group">
-								<input class="input" type="text" name="country" placeholder="País">
-							</div>
-							<div class="form-group">
-								<input class="input" type="text" name="zip-code" placeholder="CEP">
-							</div>
-							<div class="form-group">
-								<input class="input" type="tel" name="tel" placeholder="Telefone">
-							</div>
-							<div class="form-group">
-								<div class="input-checkbox">
-									<input type="checkbox" id="create-account">
-									<label for="create-account">
-										<span></span>
-										Criar conta?
-									</label>
-									<div class="caption">
-										<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt.</p>
-										<input class="input" type="password" name="password" placeholder="Entre com a sua Senha">
-									</div>
+							
+								<div class="form-group">
+									<input class="input" type="text" name="endereco" placeholder="Endereço">
 								</div>
-							</div>
-						</div>
+								<div class="form-group">
+									<input class="input" type="text" name="cidade" placeholder="Cidade">
+								</div>
+								<div class="form-group">
+									<input class="input" type="text" name="estado" placeholder="Estado">
+								</div>
+								<div class="form-group">
+									<input class="input" type="text" name="pais" placeholder="País">
+								</div>
+								<div class="form-group">
+									<input class="input" type="text" name="cep" placeholder="CEP">
+								</div>
+								<div class="form-group">
+									<input class="input" type="tel" name="tel" placeholder="Telefone">
+								</div>
+							</div>						
 						<!-- /Billing Details -->
 
-						<!-- Shiping Details -->
-						<div class="shiping-details">
-							<div class="section-title">
-								<h3 class="title">Endereço de Entrega</h3>
+							<!-- Order notes -->
+							<div class="order-notes">
+								<textarea class="input" name="notas" placeholder="Notas do pedido"></textarea>
 							</div>
-							<div class="input-checkbox">
-								<input type="checkbox" id="shiping-address">
-								<label for="shiping-address">
-									<span></span>
-									Entregar em um endereço diferente?
-								</label>
-								<div class="caption">
-									<div class="form-group">
-								<input class="input" type="text" name="first-name" placeholder="Primeiro Nome">
-							</div>
-							<div class="form-group">
-								<input class="input" type="text" name="last-name" placeholder="Último nome">
-							</div>
-							<div class="form-group">
-								<input class="input" type="email" name="email" placeholder="E-mail">
-							</div>
-							<div class="form-group">
-								<input class="input" type="text" name="address" placeholder="Endereço">
-							</div>
-							<div class="form-group">
-								<input class="input" type="text" name="city" placeholder="Cidade">
-							</div>
-							<div class="form-group">
-								<input class="input" type="text" name="country" placeholder="País">
-							</div>
-							<div class="form-group">
-								<input class="input" type="text" name="zip-code" placeholder="CEP">
-							</div>
-							<div class="form-group">
-								<input class="input" type="tel" name="tel" placeholder="Telefone">
-							</div>
-								</div>
-							</div>
-						</div>
-						<!-- /Shiping Details -->
-
-						<!-- Order notes -->
-						<div class="order-notes">
-							<textarea class="input" placeholder="Notas do pedido"></textarea>
-						</div>
-						<!-- /Order notes -->
+							<!-- /Order notes -->
+							<input type="submit" value="Cadastrar Endereço" class="btn btn-primary btn-lg btn-block">
+						</form>
 					</div>
 
 					<!-- Order Details -->

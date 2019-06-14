@@ -10,8 +10,8 @@ create table cliente (
 );
 
 create table endereco_entrega (
-  cod_endereco_entrega int not null,
-  nome_completo varchar(50),
+  cod_endereco_entrega int not null auto_increment,
+  nome varchar(50),
   email varchar(30),
   endereco varchar(50),
   cep varchar(9),

@@ -49,6 +49,13 @@
 					</ul>
 					<ul class="header-links pull-right">
                     <li>
+						<?php  
+							if (isset($_SESSION['login']) && $_SESSION['login']=='admin'):						
+						?>
+						<li><a href="blankCadastroProduto.php"><?php echo "Novo Produto"; ?></a></li>	
+						<?php
+							endif;
+						?>	
 							<?php 
 							if (isset($_SESSION['login'])) {
 							?><a href="minhaConta.php"></a>	
@@ -187,7 +194,7 @@
 		<div class="box-parent-login">
 	<div class="well bg-white box-login">
 		<h1 class="ls-login-logo">Minha Conta</h1>
-		<a href="logout.php">Sair</a>
+		<a href="php/logout.php">Sair</a>
 	</div>
 </div>
 

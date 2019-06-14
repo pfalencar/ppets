@@ -57,7 +57,14 @@
 						<li><a href="#"><i class="fa fa-map-marker"></i> </a></li>
 					</ul>
 					<ul class="header-links pull-right">
-						<li><a href="#"><i class="fa fa-dollar"></i> BRL</a></li>
+					<?php  
+							if (isset($_SESSION['login']) && $_SESSION['login']=='admin'):						
+						?>
+						<li><a href="blankCadastroProduto.php"><?php echo "Novo Produto"; ?></a></li>	
+						<?php
+							endif;
+						?>		
+					<li><a href="#"><i class="fa fa-dollar"></i> BRL</a></li>
 						<li>
 							<?php 
 							if (isset($_SESSION['login'])):

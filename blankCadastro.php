@@ -195,7 +195,7 @@
 		<div class="box-parent-login">
 	<div class="well bg-white box-login">
 		<h1 class="ls-login-logo">Cadastro</h1>
-		<form role="form" action="cadastro.php" method="post">
+		<form role="form" action="php/cadastro.php" method="post">
 			
  
 				<div class="form-group ls-login-user">
