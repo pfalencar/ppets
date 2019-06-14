@@ -1,14 +1,12 @@
 <?php 
 
-$servername = "localhost";
-$database = "ppets";
-$user = "root";
-$passwd = "";
-
-$conn = new mysqli($servername,$user,$passwd,$database);
-if ($conn->connect_error) {
-	die("Conexão falhou: ".$conn->connect_error);
-}
+define('HOST', 'localhost');
+define('USUARIO', 'root');
+define('SENHA' ,'');
+define('DB', 'ppets');
 
 
-?>
+$conn = new mysqli(HOST,USUARIO,SENHA,DB) or die('Conexão Falhou!');
+
+
+

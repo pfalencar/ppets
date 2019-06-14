@@ -1,3 +1,4 @@
+<?php session_start() ?>
 <!DOCTYPE html>
 <html lang="en">
 	<head>
@@ -47,7 +48,26 @@
 						<li><a href="#"><i class="fa fa-map-marker"></i> </a></li>
 					</ul>
 					<ul class="header-links pull-right">
-						<li><a href="#"><i class="fa fa-user-o"></i> Minha Conta</a></li>
+                    <li>
+							<?php 
+							if (isset($_SESSION['login'])) {
+							?><a href="minhaConta.php"></a>	
+							<?php
+							} else {
+							?><a href="blankLogin.html"></a>	
+							<?php
+							}
+						 	?>
+						 <a href=""><i class="fa fa-user-o"></i> 
+							<?php 
+								if (isset($_SESSION['login'])) {
+									echo $_SESSION['login'];
+									
+								} else {
+									echo "Minha Conta";
+								}
+							?>
+						</a></li>
 					</ul>
 				</div>
 			</div>
@@ -160,27 +180,7 @@
 		<div class="box-parent-login">
 	<div class="well bg-white box-login">
 		<h1 class="ls-login-logo">Minha Conta</h1>
-		<form role="form" action="login.php" method="post">
-			
- 
-				<div class="form-group ls-login-user">
-					<label for="userLogin">Usuário</label><br>
-					<input class="form-control ls-login-bg-user input-lg" id="userLogin" name="login" type="text" aria-label="Usuário" placeholder="Usuário">
-				</div>
- 
-				<div class="form-group ls-login-password">
-					<label for="userPassword">Senha</label><br>
-					<input class="form-control ls-login-bg-password input-lg" id="userPassword" name="pass" type="password" aria-label="Senha" placeholder="Senha">
-				</div>
-				<a href="#" class="ls-login-forgot">Esqueci minha senha</a>
- 
-				<input type="submit" value="Entrar" class="btn btn-primary btn-lg btn-block">
-				<p class="txt-center ls-login-signup">Não possui um usuário?
-					<a href="blankCadastro.html">Cadastre-se agora</a>
-				</p>
- 
-		
-		</form>
+		<a href="logout.php">Sair</a>
 	</div>
 </div>
 
