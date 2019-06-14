@@ -1,9 +1,7 @@
 <?php  
 
 //Abre uma conexão com um servidor MySQL
-ini_set('default_charset', 'UTF-8'); //esta linha antes de criar a variavel conexao
 $conn = new mysqli ("localhost", "root", "", "ppets");
-$conn->query("SET NAMES utf8"); // esta linha depois dela criada.
 
 //Recupera os valores enviados do formulario
 $nome = $_POST['nomecompleto'];
@@ -20,16 +18,12 @@ $squery = "INSERT INTO endereco_cobranca (nome_completo,email,endereco,cep,cidad
 $resultado = mysqli_query($conn,$squery);
 
 
-
 if($resultado === false){
    // Caso algo tenha dado errado, exibe uma mensagem de erro   
    echo 'erro: '. mysqli_error($conn);
-   echo "<script>alert('ERRO!'". mysqli_error($conn) .")</script>";
-   header("Location: index.html");
 }else{
    // Aviso de registro criado com sucesso
    echo 'Operação realizada com sucesso';
-   header("Location: checkout.html");
 }
 
 //fecha conexão

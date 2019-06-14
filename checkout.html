@@ -171,96 +171,39 @@
 						<!-- Billing Details -->
 						<div class="billing-details">
 							<div class="section-title">
-								<h3 class="title">Endereço de cobrança</h3>
+								<h3 class="title">Endereço de cobrança</h3>								
 							</div>
-							<form role="form" action="checkout.php" method="post">
-								<div class="form-group">
-									<input class="input" type="text" name="nomecompleto" placeholder="Nome Completo">
-								</div>
-								<div class="form-group">
-									<input class="input" type="email" name="email" placeholder="E-mail">
-								</div>
-								<div class="form-group">
-									<input class="input" type="text" name="address" placeholder="Endereço">
-								</div>
-								<div class="form-group">
-									<input class="input" type="text" name="zipcode" placeholder="CEP">
-								</div>
-								<div class="form-group">
-									<input class="input" type="text" name="city" placeholder="Cidade">
-								</div>
-								<div class="form-group">
-									<input class="input" type="text" name="state" placeholder="Estado">
-								</div>
-								<div class="form-group">
-									<input class="input" type="text" name="country" placeholder="País">
-								</div>							
-								<div class="form-group">
-									<input class="input" type="tel" name="tel" placeholder="Telefone">
-								</div>
-								<input type="submit" value="Cadastrar" class="btn btn-primary btn-lg btn-block">
-							</form>
-							<div class="form-group">
-								<div class="input-checkbox">
-									<input type="checkbox" id="create-account">
-									<label for="create-account">
-										<span></span>
-										Criar conta?
-									</label>
-									<div class="caption">
-										<p>Senha:</p>
-										<input class="input" type="password" name="password" placeholder="Entre com a sua Senha">
+									
+								<form role="form" action="checkout.php" method="post">
+									<div class="form-group">
+										<input class="input" type="text" name="nomecompleto" placeholder="Nome completo">
 									</div>
-								</div>
-							</div>
+									<div class="form-group">
+										<input class="input" type="email" name="email" placeholder="E-mail">
+									</div>
+									<div class="form-group">
+										<input class="input" type="text" name="address" placeholder="Endereço">
+									</div>
+									<div class="form-group">
+										<input class="input" type="text" name="zipcode" placeholder="CEP">
+									</div>
+									<div class="form-group">
+										<input class="input" type="text" name="city" placeholder="Cidade">
+									</div>
+									<div class="form-group">
+										<input class="input" type="text" name="state" placeholder="Estado">
+									</div>
+									<div class="form-group">
+										<input class="input" type="text" name="country" placeholder="País">
+									</div>							
+									<div class="form-group">
+										<input class="input" type="tel" name="tel" placeholder="Telefone">
+									</div>
+									<div class="form-group">
+										<button type="submit" class="btn btn-primary btn-lg btn-block">Salvar endereço</button>									
+									</div>
 						</div>
-						<!-- /Billing Details -->
-
-						<!-- Shiping Details -->
-						<div class="shiping-details">
-							<div class="section-title">
-								<h3 class="title">Endereço de Entrega</h3>
-							</div>
-							<div class="input-checkbox">
-								<input type="checkbox" id="shiping-address">
-								<label for="shiping-address">
-									<span></span>
-									Entregar em um endereço diferente?
-								</label>
-								<div class="form-group">
-								<input class="input" type="text" name="nomecompletoentrega" placeholder="Nome Completo">
-							</div>
-							<div class="form-group">
-								<input class="input" type="email" name="emailentrega" placeholder="E-mail">
-							</div>
-							<div class="form-group">
-								<input class="input" type="text" name="addressentrega" placeholder="Endereço">
-							</div>
-							<div class="form-group">
-								<input class="input" type="text" name="zipcodeentrega" placeholder="CEP">
-							</div>
-							<div class="form-group">
-								<input class="input" type="text" name="cityentrega" placeholder="Cidade">
-							</div>
-							<div class="form-group">
-								<input class="input" type="text" name="stateentrega" placeholder="Estado">
-							</div>
-							<div class="form-group">
-								<input class="input" type="text" name="countryentrega" placeholder="País">
-							</div>							
-							<div class="form-group">
-								<input class="input" type="tel" name="telentrega" placeholder="Telefone">
-							</div>
-								</div>
-							</div>
-						</div>
-						<!-- /Shiping Details -->
-
-						<!-- Order notes -->
-						<div class="order-notes">
-							<textarea class="input" placeholder="Notas do pedido"></textarea>
-						</div>
-						<!-- /Order notes -->
+						<!-- /Billing Details -->						
 					</div>
 
 					<!-- Order Details -->
@@ -293,36 +236,18 @@
 							</div>
 						</div>
 						<div class="payment-method">
-							<div class="input-radio">
-								<input type="radio" name="payment" id="payment-1">
-								<label for="payment-1">
-									<span></span>
-									Transferência Bancária
-								</label>
-								<div class="caption">
-									<p>Ainda não habilitado.</p>
-								</div>
-							</div>
+							
 							<div class="input-radio">
 								<input type="radio" name="payment" id="payment-2">
 								<label for="payment-2">
 									<span></span>
-									Pagamento por Boleto
+									Gerar Boleto
 								</label>
 								<div class="caption">
 									<p>EM CONSTRUÇÃO...</p>
 								</div>
 							</div>
-							<div class="input-radio">
-								<input type="radio" name="payment" id="payment-3">
-								<label for="payment-3">
-									<span></span>
-									Sistema Paypal
-								</label>
-								<div class="caption">
-									<p>Ainda não habilitado.</p>
-								</div>
-							</div>
+							
 						</div>
 						<div class="input-checkbox">
 							<input type="checkbox" id="terms">
