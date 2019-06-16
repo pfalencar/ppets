@@ -195,6 +195,105 @@
 			<!-- /MAIN HEADER -->
 		</header>
 		<!-- /HEADER -->
+		
+		
+		<form enctype="multipart/form-data" action="cadastroProduto.php" method="post">
+
+<h1> Bem vindo ao Cadastro de produto</h1> 
+  <h2> Preencha o formulário abaixo para casdastrar seus produtos</h2><br />
+
+<!-- DADOS PESSOAIS-->
+
+ <legend>Dados do Produto</legend>
+ <table cellspacing="10">
+ 
+ 
+
+ 
+ <!-- Nome do produto-->
+  <tr>
+   <td>
+    <label for="nome">Nome: </label>
+   </td>
+   <td align="left">
+    <input type="text" name="nome">
+   </td>
+   
+    <!-- valor do produto-->
+   <tr>
+   <td>
+    <label for="valor">Valor: </label>
+   </td>
+   <td align="left">
+    <input type="text" name="valor">
+   </td>
+  </tr>
+  
+   <!-- descrição do produto-->
+  <tr>
+   <td>
+    <label for="Descrição">Descrição: </label>
+   </td>
+   <td align="left">
+    <input type="text" name="Descricao">
+   </td>
+  </tr>
+  
+   <!-- cor do produto-->
+  <tr>
+   <td>
+    <label for="cor">Cor: </label>
+   </td>
+   <td align="left">
+    <input type="text" name="cor">
+   </td>
+  </tr>
+  
+   <!-- Tamanho do produto-->
+  <tr>
+   <td>
+    <label for="tamanho">Tamanho: </label>
+   </td>
+   <td align="left">
+    <input type="text" name="tamanho">
+   </td>
+	</tr>
+
+	<!-- categoria do produto-->
+	<tr>
+   <td>
+    <label for="categoria">Categoria: </label>
+   </td>
+   <td align="left">
+    <input type="text" name="categoria">
+   </td>
+	</tr>
+  
+   <!-- Classificação do produto-->
+  <tr>
+   <td>
+    <label for="classificação">Classificação: </label>
+   </td>
+   <td align="left">
+    <input type="text" name="classificacao">
+   </td>
+	</tr>
+  
+  <!-- Imagem do produto-->
+   <tr>
+   <td>
+    <label for="imagem">Imagem: </label>
+   </td>
+   <td align="left">
+    <input type="hidden" name="MAX_FILE_SIZE" value="99999999"/>
+    <div><input name="produto" type="file"/></div>
+   </td>
+
+  </tr>
+ </table>
+<input type="submit" value="Cadastrar">
+
+</form>
 
 		<!-- NAVIGATION -->
 		<nav id="navigation">
