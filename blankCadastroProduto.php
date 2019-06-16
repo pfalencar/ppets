@@ -197,196 +197,104 @@
 		<!-- /HEADER -->
 		
 		
-		<form enctype="multipart/form-data" action="cadastroProduto.php" method="post">
+		<form enctype="multipart/form-data" action="php/cadastroProduto.php" method="post">
 
-<h1> Bem vindo ao Cadastro de produto</h1> 
-  <h2> Preencha o formulário abaixo para casdastrar seus produtos</h2><br />
+		<h1> Bem vindo ao Cadastro de produto</h1> 
+		<h2> Preencha o formulário abaixo para cacdastrar seus produtos</h2><br />
 
-<!-- DADOS PESSOAIS-->
+		<!-- DADOS PESSOAIS-->
 
- <legend>Dados do Produto</legend>
- <table cellspacing="10">
- 
- 
+		<legend>Dados do Produto</legend>
+		<table cellspacing="10">
+		
+		
 
- 
- <!-- Nome do produto-->
-  <tr>
-   <td>
-    <label for="nome">Nome: </label>
-   </td>
-   <td align="left">
-    <input type="text" name="nome">
-   </td>
-   
-    <!-- valor do produto-->
-   <tr>
-   <td>
-    <label for="valor">Valor: </label>
-   </td>
-   <td align="left">
-    <input type="text" name="valor">
-   </td>
-  </tr>
-  
-   <!-- descrição do produto-->
-  <tr>
-   <td>
-    <label for="Descrição">Descrição: </label>
-   </td>
-   <td align="left">
-    <input type="text" name="Descricao">
-   </td>
-  </tr>
-  
-   <!-- cor do produto-->
-  <tr>
-   <td>
-    <label for="cor">Cor: </label>
-   </td>
-   <td align="left">
-    <input type="text" name="cor">
-   </td>
-  </tr>
-  
-   <!-- Tamanho do produto-->
-  <tr>
-   <td>
-    <label for="tamanho">Tamanho: </label>
-   </td>
-   <td align="left">
-    <input type="text" name="tamanho">
-   </td>
-	</tr>
+		
+		<!-- Nome do produto-->
+		<tr>
+		<td>
+			<label for="nome">Nome: </label>
+		</td>
+		<td align="left">
+			<input type="text" name="nome">
+		</td>
+		
+			<!-- valor do produto-->
+		<tr>
+		<td>
+			<label for="valor">Valor: </label>
+		</td>
+		<td align="left">
+			<input type="text" name="valor">
+		</td>
+		</tr>
+		
+		<!-- descrição do produto-->
+		<tr>
+		<td>
+			<label for="Descrição">Descrição: </label>
+		</td>
+		<td align="left">
+			<input type="text" name="descricao">
+		</td>
+		</tr>
+		
+		<!-- cor do produto-->
+		<tr>
+		<td>
+			<label for="cor">Cor: </label>
+		</td>
+		<td align="left">
+			<input type="text" name="cor">
+		</td>
+		</tr>
+		
+		<!-- Tamanho do produto-->
+		<tr>
+		<td>
+			<label for="tamanho">Tamanho: </label>
+		</td>
+		<td align="left">
+			<input type="text" name="tamanho">
+		</td>
+			</tr>
 
-	<!-- categoria do produto-->
-	<tr>
-   <td>
-    <label for="categoria">Categoria: </label>
-   </td>
-   <td align="left">
-    <input type="text" name="categoria">
-   </td>
-	</tr>
-  
-   <!-- Classificação do produto-->
-  <tr>
-   <td>
-    <label for="classificação">Classificação: </label>
-   </td>
-   <td align="left">
-    <input type="text" name="classificacao">
-   </td>
-	</tr>
-  
-  <!-- Imagem do produto-->
-   <tr>
-   <td>
-    <label for="imagem">Imagem: </label>
-   </td>
-   <td align="left">
-    <input type="hidden" name="MAX_FILE_SIZE" value="99999999"/>
-    <div><input name="produto" type="file"/></div>
-   </td>
+			<!-- categoria do produto-->
+			<tr>
+		<td>
+			<label for="categoria">Categoria: </label>
+		</td>
+		<td align="left">
+			<input type="text" name="categoria">
+		</td>
+			</tr>
+		
+		<!-- Classificação do produto-->
+		<tr>
+		<td>
+			<label for="classificação">Classificação: </label>
+		</td>
+		<td align="left">
+			<input type="text" name="classificacao">
+		</td>
+			</tr>
+		
+		<!-- Imagem do produto-->
+		<tr>
+		<td>
+			<label for="imagem">Imagem: </label>
+		</td>
+		<td align="left">
+			<input type="hidden" name="MAX_FILE_SIZE" value="99999999"/>
+			<div><input name="produto" type="file"></div>
+		</td>
 
-  </tr>
- </table>
-<input type="submit" value="Cadastrar">
+		</tr>
+		</table>
+		<input type="submit" value="Cadastrar">
 
-</form>
+		</form>
 
-		<!-- NAVIGATION -->
-		<nav id="navigation">
-			<!-- container -->
-			<div class="container">
-				<!-- responsive-nav -->
-				<div id="responsive-nav">
-					<!-- NAV -->
-					<ul class="main-nav nav navbar-nav">
-						<li class="active"><a href="#">Home</a></li>
-						<li><a href="#">Hot Deals</a></li>
-						<li><a href="#">Categories</a></li>
-						<li><a href="#">Laptops</a></li>
-						<li><a href="#">Smartphones</a></li>
-						<li><a href="#">Cameras</a></li>
-						<li><a href="#">Accessories</a></li>
-					</ul>
-					<!-- /NAV -->
-				</div>
-				<!-- /responsive-nav -->
-			</div>
-			<!-- /container -->
-		</nav>
-		<!-- /NAVIGATION -->
-
-		<!-- BREADCRUMB -->
-		<div id="breadcrumb" class="section">
-			<!-- container -->
-			<div class="container">
-				<!-- row -->
-				<div class="row">
-					<div class="col-md-12">
-						<h3 class="breadcrumb-header">Regular Page</h3>
-						<ul class="breadcrumb-tree">
-							<li><a href="#">Home</a></li>
-							<li class="active">Blank</li>
-						</ul>
-					</div>
-				</div>
-				<!-- /row -->
-			</div>
-			<!-- /container -->
-		</div>
-		<!-- /BREADCRUMB -->
-
-		<!-- SECTION -->
-		<div class="section">
-			<!-- container -->
-			<div class="container">
-				<!-- row -->
-				<div class="row">
-				</div>
-				<!-- /row -->
-			</div>
-			<!-- /container -->
-		</div>
-		<!-- /SECTION -->
-
-		<!-- NEWSLETTER -->
-		<div id="newsletter" class="section">
-			<!-- container -->
-			<div class="container">
-				<!-- row -->
-				<div class="row">
-					<div class="col-md-12">
-						<div class="newsletter">
-							<p>Sign Up for the <strong>NEWSLETTER</strong></p>
-							<form>
-								<input class="input" type="email" placeholder="Enter Your Email">
-								<button class="newsletter-btn"><i class="fa fa-envelope"></i> Subscribe</button>
-							</form>
-							<ul class="newsletter-follow">
-								<li>
-									<a href="#"><i class="fa fa-facebook"></i></a>
-								</li>
-								<li>
-									<a href="#"><i class="fa fa-twitter"></i></a>
-								</li>
-								<li>
-									<a href="#"><i class="fa fa-instagram"></i></a>
-								</li>
-								<li>
-									<a href="#"><i class="fa fa-pinterest"></i></a>
-								</li>
-							</ul>
-						</div>
-					</div>
-				</div>
-				<!-- /row -->
-			</div>
-			<!-- /container -->
-		</div>
-		<!-- /NEWSLETTER -->
 
 		<!-- FOOTER -->
 		<footer id="footer">

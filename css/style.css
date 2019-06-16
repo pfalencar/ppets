@@ -337,7 +337,8 @@ textarea.input {
   content: "";
   display: block;
   width: 0%;
-  height: 2pxffcc80  background-color: #D10024;
+  height: 2px;  
+  background-color: #fff;
   -webkit-transition: 0.2s all;
   transition: 0.2s all;
 }
@@ -1021,7 +1022,7 @@ textarea.input {
   right: 1px;
   bottom: 1px;
   padding: 15px;
-  background: #1e1f29;
+  background: #fff;
   text-align: center;
   -webkit-transform: translateY(0%);
   -ms-transform: translateY(0%);
@@ -1536,7 +1537,7 @@ textarea.input {
   border: 2px solid transparent;
   height: 40px;
   padding: 0 30px;
-  background-color: #ef233c;
+  background-color: #fff;
   color: #FFF;
   text-transform: uppercase;
   font-weight: 700;

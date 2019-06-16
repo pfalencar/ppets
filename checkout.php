@@ -306,7 +306,24 @@
 								Eu li e aceito os <a href="#">termos e condições</a>
 							</label>
 						</div>
-						<a href="#" class="primary-btn order-submit">Faça o pedido</a>
+						
+						<?php  
+						if (isset($_SESSION['login'])):
+						?>
+						<a href="pedidoFinalizado.php" class="primary-btn order-submit">Faça o pedido</a>
+						<?php	
+						else:													
+						?>
+						<a href="blankLogin.php" class="primary-btn order-submit" onclick="irLogin()">Faça o pedido</a>
+						<?php	
+						endif;
+						?>
+						<script>
+						function irLogin(){
+							alert("Você precisa estar logado para finalizar seu pedido")
+						}
+						</script>
+						
 					</div>
 					<!-- /Order Details -->
 				</div>

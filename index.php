@@ -1,19 +1,13 @@
-<?php session_start(); 
-function select(){
-	include_once("conexaoSQL.php");
-
-	$sql = "SELECT produto,categoria,classificacao,nome,valor FROM produto";
-
-	try {
-		$result=mysqli_query($conn,$sql);
-		$row=mysqli_fetch_object($result);
+<?php 
+	session_start(); 
+	include_once("php/conexaoSQL.php"); 
+	
+	function select($classificacao){
 		
-
-	} catch (Exception $th) {
-		echo "Não foi possivel exibir produto";
-		echo $th;
+		$sql = "SELECT cod_produto,produto,categoria,classificacao,nome,valor FROM produto where classificacao = '$classificacao' ";
+		return $sql;
 	}
-}
+ 	
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -357,12 +351,20 @@ function select(){
 								<!-- tab -->
 								<div id="tab1" class="tab-pane active">
 									<div class="products-slick" data-nav="#slick-nav-1">
-										
+									<?php 
+											try {
+												
+												$sql = select('cachorro');
+												$result=mysqli_query($conn,$sql);
+												while ($row=mysqli_fetch_object($result)) {
+												?>
 										<!-- product -->
 										<div class="product">
 											<div class="product-img">
-											<a href="dogproduct1.html">
-												<img src="./img/acessorioCachorro.jpg" alt="" width="200" height="200">
+											<a href="product.php?id=<?php echo $row->cod_produto;?>">
+											
+												<img src="img/<?php echo $row->produto;?>" alt='' width='200' height='200'>
+												
 												</a>
 												<div class="product-label">
 													
@@ -370,9 +372,9 @@ function select(){
 												</div>
 											</div>
 											<div class="product-body">
-												<p class="product-category">Category</p>
-												<h3 class="product-name"><a href="#">Casinha para Cachorro</a></h3>
-												<h4 class="product-price">$80.00 <del class="product-old-price">$90.00</del></h4>
+												<p class="product-category"><?php echo $row->categoria;?></p>
+												<h3 class="product-name"><a href="product.php"><?php echo $row->nome;?></a></h3>
+												<h4 class="product-price">R$ <?php echo $row->valor;?></h4>
 												<div class="product-rating">
 													<i class="fa fa-star"></i>
 													<i class="fa fa-star"></i>
@@ -385,6 +387,17 @@ function select(){
 												<button class="add-to-cart-btn"><i class="fa fa-shopping-cart"></i> Adicionar ao Carrinho</button>
 											</div>
 										</div>
+										<?php
+												}
+											} catch (Exception $th) {
+												echo "Não foi possivel exibir produto";
+												echo $th;
+											}
+										
+										
+											
+											
+										?>
 										<!-- /product -->
 
 										
@@ -433,19 +446,29 @@ function select(){
 								<!-- tab -->
 								<div id="tab1" class="tab-pane active">
 									<div class="products-slick" data-nav="#slick-nav-1">
+									<?php 
+											try {
+												$sql = select('gato');
+												$result=mysqli_query($conn,$sql);
+												while ($row=mysqli_fetch_object($result)) {
+												?>
 										<!-- product -->
 										<div class="product">
 											<div class="product-img">
-												<img src="./img/acessorioCachorro.jpg" alt="">
+											<a href="product.php?id=<?php echo $row->cod_produto;?>">
+											
+												<img src="img/<?php echo $row->produto;?>" alt='' width='200' height='200'>
+												
+												</a>
 												<div class="product-label">
-													<span class="sale">-30%</span>
+													
 													<span class="new">Novo</span>
 												</div>
 											</div>
 											<div class="product-body">
-												<p class="product-category">Category</p>
-												<h3 class="product-name"><a href="#">product name goes here</a></h3>
-												<h4 class="product-price">$980.00 <del class="product-old-price">$990.00</del></h4>
+												<p class="product-category"><?php echo $row->categoria;?></p>
+												<h3 class="product-name"><a href="product.php"><?php echo $row->nome;?></a></h3>
+												<h4 class="product-price">R$ <?php echo $row->valor;?></h4>
 												<div class="product-rating">
 													<i class="fa fa-star"></i>
 													<i class="fa fa-star"></i>
@@ -453,129 +476,22 @@ function select(){
 													<i class="fa fa-star"></i>
 													<i class="fa fa-star"></i>
 												</div>
-												<div class="product-btns">
-													<button class="add-to-wishlist"><i class="fa fa-heart-o"></i><span class="tooltipp">Adicionar a lista de desejos</span></button>
-													<button class="add-to-compare"><i class="fa fa-exchange"></i><span class="tooltipp">Adicionar a comparar</span></button>
-													<button class="quick-view"><i class="fa fa-eye"></i><span class="tooltipp">Veja</span></button>
-												</div>
 											</div>
 											<div class="add-to-cart">
 												<button class="add-to-cart-btn"><i class="fa fa-shopping-cart"></i> Adicionar ao Carrinho</button>
 											</div>
 										</div>
-										<!-- /product -->
-
-										<!-- product -->
-										<div class="product">
-											<div class="product-img">
-												<img src="./img/acessorioCachorro1.jpg" alt="">
-												<div class="product-label">
-													<span class="new">Novo</span>
-												</div>
-											</div>
-											<div class="product-body">
-												<p class="product-category">Category</p>
-												<h3 class="product-name"><a href="#">product name goes here</a></h3>
-												<h4 class="product-price">$980.00 <del class="product-old-price">$990.00</del></h4>
-												<div class="product-rating">
-													<i class="fa fa-star"></i>
-													<i class="fa fa-star"></i>
-													<i class="fa fa-star"></i>
-													<i class="fa fa-star"></i>
-													<i class="fa fa-star-o"></i>
-												</div>
-												<div class="product-btns">
-													<button class="add-to-wishlist"><i class="fa fa-heart-o"></i><span class="tooltipp">Adicionar a lista de desejos</span></button>
-													<button class="add-to-compare"><i class="fa fa-exchange"></i><span class="tooltipp">Adicionar a comparar</span></button>
-													<button class="quick-view"><i class="fa fa-eye"></i><span class="tooltipp">Veja</span></button>
-												</div>
-											</div>
-											<div class="add-to-cart">
-												<button class="add-to-cart-btn"><i class="fa fa-shopping-cart"></i> Adicionar ao Carrinho</button>
-											</div>
-										</div>
-										<!-- /product -->
-
-										<!-- product -->
-										<div class="product">
-											<div class="product-img">
-												<img src="./img/acessoriogato.png" alt="">
-												<div class="product-label">
-													<span class="sale">-30%</span>
-												</div>
-											</div>
-											<div class="product-body">
-												<p class="product-category">Category</p>
-												<h3 class="product-name"><a href="#">product name goes here</a></h3>
-												<h4 class="product-price">$980.00 <del class="product-old-price">$990.00</del></h4>
-												<div class="product-rating">
-												</div>
-												<div class="product-btns">
-													<button class="add-to-wishlist"><i class="fa fa-heart-o"></i><span class="tooltipp">Adicionar a lista de desejos</span></button>
-													<button class="add-to-compare"><i class="fa fa-exchange"></i><span class="tooltipp">Adicionar a comparar</span></button>
-													<button class="quick-view"><i class="fa fa-eye"></i><span class="tooltipp">Veja</span></button>
-												</div>
-											</div>
-											<div class="add-to-cart">
-												<button class="add-to-cart-btn"><i class="fa fa-shopping-cart"></i> Adicionar ao Carrinho</button>
-											</div>
-										</div>
-										<!-- /product -->
-
-										<!-- product -->
-										<div class="product">
-											<div class="product-img">
-												<img src="./img/acessoriogato.jpg" alt="">
-											</div>
-											<div class="product-body">
-												<p class="product-category">Category</p>
-												<h3 class="product-name"><a href="#">product name goes here</a></h3>
-												<h4 class="product-price">$980.00 <del class="product-old-price">$990.00</del></h4>
-												<div class="product-rating">
-													<i class="fa fa-star"></i>
-													<i class="fa fa-star"></i>
-													<i class="fa fa-star"></i>
-													<i class="fa fa-star"></i>
-													<i class="fa fa-star"></i>
-												</div>
-												<div class="product-btns">
-													<button class="add-to-wishlist"><i class="fa fa-heart-o"></i><span class="tooltipp">Adicionar a lista de desejos</span></button>
-													<button class="add-to-compare"><i class="fa fa-exchange"></i><span class="tooltipp">Adicionar a comparar</span></button>
-													<button class="quick-view"><i class="fa fa-eye"></i><span class="tooltipp">Veja</span></button>
-												</div>
-											</div>
-											<div class="add-to-cart">
-												<button class="add-to-cart-btn"><i class="fa fa-shopping-cart"></i> Adicionar ao Carrinho</button>
-											</div>
-										</div>
-										<!-- /product -->
-
-										<!-- product -->
-										<div class="product">
-											<div class="product-img">
-												<img src="./img/acessorioCachorro2.jpg" alt="">
-											</div>
-											<div class="product-body">
-												<p class="product-category">Category</p>
-												<h3 class="product-name"><a href="#">product name goes here</a></h3>
-												<h4 class="product-price">$980.00 <del class="product-old-price">$990.00</del></h4>
-												<div class="product-rating">
-													<i class="fa fa-star"></i>
-													<i class="fa fa-star"></i>
-													<i class="fa fa-star"></i>
-													<i class="fa fa-star"></i>
-													<i class="fa fa-star"></i>
-												</div>
-												<div class="product-btns">
-													<button class="add-to-wishlist"><i class="fa fa-heart-o"></i><span class="tooltipp">Adicionar a lista de desejos</span></button>
-													<button class="add-to-compare"><i class="fa fa-exchange"></i><span class="tooltipp">Adicionar a comparar</span></button>
-													<button class="quick-view"><i class="fa fa-eye"></i><span class="tooltipp">Veja</span></button>
-												</div>
-											</div>
-											<div class="add-to-cart">
-												<button class="add-to-cart-btn"><i class="fa fa-shopping-cart"></i> Adicionar ao Carrinho</button>
-											</div>
-										</div>
+										<?php
+												}
+											} catch (Exception $th) {
+												echo "Não foi possivel exibir produto";
+												echo $th;
+											}
+										
+										
+											
+											
+										?>
 										<!-- /product -->
 									</div>
 									<div id="slick-nav-1" class="products-slick-nav"></div>
@@ -622,19 +538,31 @@ function select(){
 								<!-- tab -->
 								<div id="tab1" class="tab-pane active">
 									<div class="products-slick" data-nav="#slick-nav-1">
+									<?php 
+											
+
+											try {
+												$sql = select('peixe');
+												$result=mysqli_query($conn,$sql);
+												while ($row=mysqli_fetch_object($result)) {
+												?>
 										<!-- product -->
 										<div class="product">
 											<div class="product-img">
-												<img src="./img/acessorioCachorro.jpg" alt="">
+											<a href="product.php?id=<?php echo $row->cod_produto;?>">
+											
+												<img src="img/<?php echo $row->produto;?>" alt='' width='200' height='200'>
+												
+												</a>
 												<div class="product-label">
-													<span class="sale">-30%</span>
+													
 													<span class="new">Novo</span>
 												</div>
 											</div>
 											<div class="product-body">
-												<p class="product-category">Category</p>
-												<h3 class="product-name"><a href="#">product name goes here</a></h3>
-												<h4 class="product-price">$980.00 <del class="product-old-price">$990.00</del></h4>
+												<p class="product-category"><?php echo $row->categoria;?></p>
+												<h3 class="product-name"><a href="product.php"><?php echo $row->nome;?></a></h3>
+												<h4 class="product-price">R$ <?php echo $row->valor;?></h4>
 												<div class="product-rating">
 													<i class="fa fa-star"></i>
 													<i class="fa fa-star"></i>
@@ -642,129 +570,22 @@ function select(){
 													<i class="fa fa-star"></i>
 													<i class="fa fa-star"></i>
 												</div>
-												<div class="product-btns">
-													<button class="add-to-wishlist"><i class="fa fa-heart-o"></i><span class="tooltipp">Adicionar a lista de desejos</span></button>
-													<button class="add-to-compare"><i class="fa fa-exchange"></i><span class="tooltipp">Adicionar a comparar</span></button>
-													<button class="quick-view"><i class="fa fa-eye"></i><span class="tooltipp">Veja</span></button>
-												</div>
 											</div>
 											<div class="add-to-cart">
 												<button class="add-to-cart-btn"><i class="fa fa-shopping-cart"></i> Adicionar ao Carrinho</button>
 											</div>
 										</div>
-										<!-- /product -->
-
-										<!-- product -->
-										<div class="product">
-											<div class="product-img">
-												<img src="./img/acessorioCachorro1.jpg" alt="">
-												<div class="product-label">
-													<span class="new">Novo</span>
-												</div>
-											</div>
-											<div class="product-body">
-												<p class="product-category">Category</p>
-												<h3 class="product-name"><a href="#">product name goes here</a></h3>
-												<h4 class="product-price">$980.00 <del class="product-old-price">$990.00</del></h4>
-												<div class="product-rating">
-													<i class="fa fa-star"></i>
-													<i class="fa fa-star"></i>
-													<i class="fa fa-star"></i>
-													<i class="fa fa-star"></i>
-													<i class="fa fa-star-o"></i>
-												</div>
-												<div class="product-btns">
-													<button class="add-to-wishlist"><i class="fa fa-heart-o"></i><span class="tooltipp">Adicionar a lista de desejos</span></button>
-													<button class="add-to-compare"><i class="fa fa-exchange"></i><span class="tooltipp">Adicionar a comparar</span></button>
-													<button class="quick-view"><i class="fa fa-eye"></i><span class="tooltipp">Veja</span></button>
-												</div>
-											</div>
-											<div class="add-to-cart">
-												<button class="add-to-cart-btn"><i class="fa fa-shopping-cart"></i> Adicionar ao Carrinho</button>
-											</div>
-										</div>
-										<!-- /product -->
-
-										<!-- product -->
-										<div class="product">
-											<div class="product-img">
-												<img src="./img/acessoriogato.png" alt="">
-												<div class="product-label">
-													<span class="sale">-30%</span>
-												</div>
-											</div>
-											<div class="product-body">
-												<p class="product-category">Category</p>
-												<h3 class="product-name"><a href="#">product name goes here</a></h3>
-												<h4 class="product-price">$980.00 <del class="product-old-price">$990.00</del></h4>
-												<div class="product-rating">
-												</div>
-												<div class="product-btns">
-													<button class="add-to-wishlist"><i class="fa fa-heart-o"></i><span class="tooltipp">Adicionar a lista de desejos</span></button>
-													<button class="add-to-compare"><i class="fa fa-exchange"></i><span class="tooltipp">Adicionar a comparar</span></button>
-													<button class="quick-view"><i class="fa fa-eye"></i><span class="tooltipp">Veja</span></button>
-												</div>
-											</div>
-											<div class="add-to-cart">
-												<button class="add-to-cart-btn"><i class="fa fa-shopping-cart"></i> Adicionar ao Carrinho</button>
-											</div>
-										</div>
-										<!-- /product -->
-
-										<!-- product -->
-										<div class="product">
-											<div class="product-img">
-												<img src="./img/acessoriogato.jpg" alt="">
-											</div>
-											<div class="product-body">
-												<p class="product-category">Category</p>
-												<h3 class="product-name"><a href="#">product name goes here</a></h3>
-												<h4 class="product-price">$980.00 <del class="product-old-price">$990.00</del></h4>
-												<div class="product-rating">
-													<i class="fa fa-star"></i>
-													<i class="fa fa-star"></i>
-													<i class="fa fa-star"></i>
-													<i class="fa fa-star"></i>
-													<i class="fa fa-star"></i>
-												</div>
-												<div class="product-btns">
-													<button class="add-to-wishlist"><i class="fa fa-heart-o"></i><span class="tooltipp">Adicionar a lista de desejos</span></button>
-													<button class="add-to-compare"><i class="fa fa-exchange"></i><span class="tooltipp">Adicionar a comparar</span></button>
-													<button class="quick-view"><i class="fa fa-eye"></i><span class="tooltipp">Veja</span></button>
-												</div>
-											</div>
-											<div class="add-to-cart">
-												<button class="add-to-cart-btn"><i class="fa fa-shopping-cart"></i> Adicionar ao Carrinho</button>
-											</div>
-										</div>
-										<!-- /product -->
-
-										<!-- product -->
-										<div class="product">
-											<div class="product-img">
-												<img src="./img/acessorioCachorro2.jpg" alt="">
-											</div>
-											<div class="product-body">
-												<p class="product-category">Category</p>
-												<h3 class="product-name"><a href="#">product name goes here</a></h3>
-												<h4 class="product-price">$980.00 <del class="product-old-price">$990.00</del></h4>
-												<div class="product-rating">
-													<i class="fa fa-star"></i>
-													<i class="fa fa-star"></i>
-													<i class="fa fa-star"></i>
-													<i class="fa fa-star"></i>
-													<i class="fa fa-star"></i>
-												</div>
-												<div class="product-btns">
-													<button class="add-to-wishlist"><i class="fa fa-heart-o"></i><span class="tooltipp">Adicionar a lista de desejos</span></button>
-													<button class="add-to-compare"><i class="fa fa-exchange"></i><span class="tooltipp">Adicionar a comparar</span></button>
-													<button class="quick-view"><i class="fa fa-eye"></i><span class="tooltipp">Veja</span></button>
-												</div>
-											</div>
-											<div class="add-to-cart">
-												<button class="add-to-cart-btn"><i class="fa fa-shopping-cart"></i> Adicionar ao Carrinho</button>
-											</div>
-										</div>
+										<?php
+												}
+											} catch (Exception $th) {
+												echo "Não foi possivel exibir produto";
+												echo $th;
+											}
+										
+										
+											
+											
+										?>
 										<!-- /product -->
 									</div>
 									<div id="slick-nav-1" class="products-slick-nav"></div>
@@ -811,19 +632,34 @@ function select(){
 								<!-- tab -->
 								<div id="tab1" class="tab-pane active">
 									<div class="products-slick" data-nav="#slick-nav-1">
+									<?php 
+											
+											
+											
+
+
+											try {
+												$sql = select('passaro');
+												$result=mysqli_query($conn,$sql);
+												while ($row=mysqli_fetch_object($result)) {
+												?>
 										<!-- product -->
 										<div class="product">
 											<div class="product-img">
-												<img src="./img/acessorioCachorro.jpg" alt="">
+											<a href="product.php?id=<?php echo $row->cod_produto;?>">
+											
+												<img src="img/<?php echo $row->produto;?>" alt='' width='200' height='200'>
+												
+												</a>
 												<div class="product-label">
-													<span class="sale">-30%</span>
+													
 													<span class="new">Novo</span>
 												</div>
 											</div>
 											<div class="product-body">
-												<p class="product-category">Category</p>
-												<h3 class="product-name"><a href="#">product name goes here</a></h3>
-												<h4 class="product-price">$980.00 <del class="product-old-price">$990.00</del></h4>
+												<p class="product-category"><?php echo $row->categoria;?></p>
+												<h3 class="product-name"><a href="product.php"><?php echo $row->nome;?></a></h3>
+												<h4 class="product-price">R$ <?php echo $row->valor;?></h4>
 												<div class="product-rating">
 													<i class="fa fa-star"></i>
 													<i class="fa fa-star"></i>
@@ -831,129 +667,22 @@ function select(){
 													<i class="fa fa-star"></i>
 													<i class="fa fa-star"></i>
 												</div>
-												<div class="product-btns">
-													<button class="add-to-wishlist"><i class="fa fa-heart-o"></i><span class="tooltipp">Adicionar a lista de desejos</span></button>
-													<button class="add-to-compare"><i class="fa fa-exchange"></i><span class="tooltipp">Adicionar a comparar</span></button>
-													<button class="quick-view"><i class="fa fa-eye"></i><span class="tooltipp">Veja</span></button>
-												</div>
 											</div>
 											<div class="add-to-cart">
 												<button class="add-to-cart-btn"><i class="fa fa-shopping-cart"></i> Adicionar ao Carrinho</button>
 											</div>
 										</div>
-										<!-- /product -->
-
-										<!-- product -->
-										<div class="product">
-											<div class="product-img">
-												<img src="./img/acessorioCachorro1.jpg" alt="">
-												<div class="product-label">
-													<span class="new">Novo</span>
-												</div>
-											</div>
-											<div class="product-body">
-												<p class="product-category">Category</p>
-												<h3 class="product-name"><a href="#">product name goes here</a></h3>
-												<h4 class="product-price">$980.00 <del class="product-old-price">$990.00</del></h4>
-												<div class="product-rating">
-													<i class="fa fa-star"></i>
-													<i class="fa fa-star"></i>
-													<i class="fa fa-star"></i>
-													<i class="fa fa-star"></i>
-													<i class="fa fa-star-o"></i>
-												</div>
-												<div class="product-btns">
-													<button class="add-to-wishlist"><i class="fa fa-heart-o"></i><span class="tooltipp">Adicionar a lista de desejos</span></button>
-													<button class="add-to-compare"><i class="fa fa-exchange"></i><span class="tooltipp">Adicionar a comparar</span></button>
-													<button class="quick-view"><i class="fa fa-eye"></i><span class="tooltipp">Veja</span></button>
-												</div>
-											</div>
-											<div class="add-to-cart">
-												<button class="add-to-cart-btn"><i class="fa fa-shopping-cart"></i> Adicionar ao Carrinho</button>
-											</div>
-										</div>
-										<!-- /product -->
-
-										<!-- product -->
-										<div class="product">
-											<div class="product-img">
-												<img src="./img/acessoriogato.png" alt="">
-												<div class="product-label">
-													<span class="sale">-30%</span>
-												</div>
-											</div>
-											<div class="product-body">
-												<p class="product-category">Category</p>
-												<h3 class="product-name"><a href="#">product name goes here</a></h3>
-												<h4 class="product-price">$980.00 <del class="product-old-price">$990.00</del></h4>
-												<div class="product-rating">
-												</div>
-												<div class="product-btns">
-													<button class="add-to-wishlist"><i class="fa fa-heart-o"></i><span class="tooltipp">Adicionar a lista de desejos</span></button>
-													<button class="add-to-compare"><i class="fa fa-exchange"></i><span class="tooltipp">Adicionar a comparar</span></button>
-													<button class="quick-view"><i class="fa fa-eye"></i><span class="tooltipp">Veja</span></button>
-												</div>
-											</div>
-											<div class="add-to-cart">
-												<button class="add-to-cart-btn"><i class="fa fa-shopping-cart"></i> Adicionar ao Carrinho</button>
-											</div>
-										</div>
-										<!-- /product -->
-
-										<!-- product -->
-										<div class="product">
-											<div class="product-img">
-												<img src="./img/acessoriogato.jpg" alt="">
-											</div>
-											<div class="product-body">
-												<p class="product-category">Category</p>
-												<h3 class="product-name"><a href="#">product name goes here</a></h3>
-												<h4 class="product-price">$980.00 <del class="product-old-price">$990.00</del></h4>
-												<div class="product-rating">
-													<i class="fa fa-star"></i>
-													<i class="fa fa-star"></i>
-													<i class="fa fa-star"></i>
-													<i class="fa fa-star"></i>
-													<i class="fa fa-star"></i>
-												</div>
-												<div class="product-btns">
-													<button class="add-to-wishlist"><i class="fa fa-heart-o"></i><span class="tooltipp">Adicionar a lista de desejos</span></button>
-													<button class="add-to-compare"><i class="fa fa-exchange"></i><span class="tooltipp">Adicionar a comparar</span></button>
-													<button class="quick-view"><i class="fa fa-eye"></i><span class="tooltipp">Veja</span></button>
-												</div>
-											</div>
-											<div class="add-to-cart">
-												<button class="add-to-cart-btn"><i class="fa fa-shopping-cart"></i> Adicionar ao Carrinho</button>
-											</div>
-										</div>
-										<!-- /product -->
-
-										<!-- product -->
-										<div class="product">
-											<div class="product-img">
-												<img src="./img/acessorioCachorro2.jpg" alt="">
-											</div>
-											<div class="product-body">
-												<p class="product-category">Category</p>
-												<h3 class="product-name"><a href="#">product name goes here</a></h3>
-												<h4 class="product-price">$980.00 <del class="product-old-price">$990.00</del></h4>
-												<div class="product-rating">
-													<i class="fa fa-star"></i>
-													<i class="fa fa-star"></i>
-													<i class="fa fa-star"></i>
-													<i class="fa fa-star"></i>
-													<i class="fa fa-star"></i>
-												</div>
-												<div class="product-btns">
-													<button class="add-to-wishlist"><i class="fa fa-heart-o"></i><span class="tooltipp">Adicionar a lista de desejos</span></button>
-													<button class="add-to-compare"><i class="fa fa-exchange"></i><span class="tooltipp">Adicionar a comparar</span></button>
-													<button class="quick-view"><i class="fa fa-eye"></i><span class="tooltipp">Veja</span></button>
-												</div>
-											</div>
-											<div class="add-to-cart">
-												<button class="add-to-cart-btn"><i class="fa fa-shopping-cart"></i> Adicionar ao Carrinho</button>
-											</div>
-										</div>
+										<?php
+												}
+											} catch (Exception $th) {
+												echo "Não foi possivel exibir produto";
+												echo $th;
+											}
+										
+										
+											
+											
+										?>
 										<!-- /product -->
 									</div>
 									<div id="slick-nav-1" class="products-slick-nav"></div>
@@ -1000,19 +729,29 @@ function select(){
 								<!-- tab -->
 								<div id="tab1" class="tab-pane active">
 									<div class="products-slick" data-nav="#slick-nav-1">
+									<?php 
+											try {
+												$sql = select('roedor');
+												$result=mysqli_query($conn,$sql);
+												while ($row=mysqli_fetch_object($result)) {
+												?>
 										<!-- product -->
 										<div class="product">
 											<div class="product-img">
-												<img src="./img/acessorioCachorro.jpg" alt="">
+											<a href="product.php?id=<?php echo $row->cod_produto;?>">
+											
+												<img src="img/<?php echo $row->produto;?>" alt='' width='200' height='200'>
+												
+												</a>
 												<div class="product-label">
-													<span class="sale">-30%</span>
+													
 													<span class="new">Novo</span>
 												</div>
 											</div>
 											<div class="product-body">
-												<p class="product-category">Category</p>
-												<h3 class="product-name"><a href="#">product name goes here</a></h3>
-												<h4 class="product-price">$980.00 <del class="product-old-price">$990.00</del></h4>
+												<p class="product-category"><?php echo $row->categoria;?></p>
+												<h3 class="product-name"><a href="product.php"><?php echo $row->nome;?></a></h3>
+												<h4 class="product-price">R$ <?php echo $row->valor;?></h4>
 												<div class="product-rating">
 													<i class="fa fa-star"></i>
 													<i class="fa fa-star"></i>
@@ -1020,129 +759,22 @@ function select(){
 													<i class="fa fa-star"></i>
 													<i class="fa fa-star"></i>
 												</div>
-												<div class="product-btns">
-													<button class="add-to-wishlist"><i class="fa fa-heart-o"></i><span class="tooltipp">Adicionar a lista de desejos</span></button>
-													<button class="add-to-compare"><i class="fa fa-exchange"></i><span class="tooltipp">Adicionar a comparar</span></button>
-													<button class="quick-view"><i class="fa fa-eye"></i><span class="tooltipp">Veja</span></button>
-												</div>
 											</div>
 											<div class="add-to-cart">
 												<button class="add-to-cart-btn"><i class="fa fa-shopping-cart"></i> Adicionar ao Carrinho</button>
 											</div>
 										</div>
-										<!-- /product -->
-
-										<!-- product -->
-										<div class="product">
-											<div class="product-img">
-												<img src="./img/acessorioCachorro1.jpg" alt="">
-												<div class="product-label">
-													<span class="new">Novo</span>
-												</div>
-											</div>
-											<div class="product-body">
-												<p class="product-category">Category</p>
-												<h3 class="product-name"><a href="#">product name goes here</a></h3>
-												<h4 class="product-price">$980.00 <del class="product-old-price">$990.00</del></h4>
-												<div class="product-rating">
-													<i class="fa fa-star"></i>
-													<i class="fa fa-star"></i>
-													<i class="fa fa-star"></i>
-													<i class="fa fa-star"></i>
-													<i class="fa fa-star-o"></i>
-												</div>
-												<div class="product-btns">
-													<button class="add-to-wishlist"><i class="fa fa-heart-o"></i><span class="tooltipp">Adicionar a lista de desejos</span></button>
-													<button class="add-to-compare"><i class="fa fa-exchange"></i><span class="tooltipp">Adicionar a comparar</span></button>
-													<button class="quick-view"><i class="fa fa-eye"></i><span class="tooltipp">Veja</span></button>
-												</div>
-											</div>
-											<div class="add-to-cart">
-												<button class="add-to-cart-btn"><i class="fa fa-shopping-cart"></i> Adicionar ao Carrinho</button>
-											</div>
-										</div>
-										<!-- /product -->
-
-										<!-- product -->
-										<div class="product">
-											<div class="product-img">
-												<img src="./img/acessoriogato.png" alt="">
-												<div class="product-label">
-													<span class="sale">-30%</span>
-												</div>
-											</div>
-											<div class="product-body">
-												<p class="product-category">Category</p>
-												<h3 class="product-name"><a href="#">product name goes here</a></h3>
-												<h4 class="product-price">$980.00 <del class="product-old-price">$990.00</del></h4>
-												<div class="product-rating">
-												</div>
-												<div class="product-btns">
-													<button class="add-to-wishlist"><i class="fa fa-heart-o"></i><span class="tooltipp">Adicionar a lista de desejos</span></button>
-													<button class="add-to-compare"><i class="fa fa-exchange"></i><span class="tooltipp">Adicionar a comparar</span></button>
-													<button class="quick-view"><i class="fa fa-eye"></i><span class="tooltipp">Veja</span></button>
-												</div>
-											</div>
-											<div class="add-to-cart">
-												<button class="add-to-cart-btn"><i class="fa fa-shopping-cart"></i> Adicionar ao Carrinho</button>
-											</div>
-										</div>
-										<!-- /product -->
-
-										<!-- product -->
-										<div class="product">
-											<div class="product-img">
-												<img src="./img/acessoriogato.jpg" alt="">
-											</div>
-											<div class="product-body">
-												<p class="product-category">Category</p>
-												<h3 class="product-name"><a href="#">product name goes here</a></h3>
-												<h4 class="product-price">$980.00 <del class="product-old-price">$990.00</del></h4>
-												<div class="product-rating">
-													<i class="fa fa-star"></i>
-													<i class="fa fa-star"></i>
-													<i class="fa fa-star"></i>
-													<i class="fa fa-star"></i>
-													<i class="fa fa-star"></i>
-												</div>
-												<div class="product-btns">
-													<button class="add-to-wishlist"><i class="fa fa-heart-o"></i><span class="tooltipp">Adicionar a lista de desejos</span></button>
-													<button class="add-to-compare"><i class="fa fa-exchange"></i><span class="tooltipp">Adicionar a comparar</span></button>
-													<button class="quick-view"><i class="fa fa-eye"></i><span class="tooltipp">Veja</span></button>
-												</div>
-											</div>
-											<div class="add-to-cart">
-												<button class="add-to-cart-btn"><i class="fa fa-shopping-cart"></i> Adicionar ao Carrinho</button>
-											</div>
-										</div>
-										<!-- /product -->
-
-										<!-- product -->
-										<div class="product">
-											<div class="product-img">
-												<img src="./img/acessorioCachorro2.jpg" alt="">
-											</div>
-											<div class="product-body">
-												<p class="product-category">Category</p>
-												<h3 class="product-name"><a href="#">product name goes here</a></h3>
-												<h4 class="product-price">$980.00 <del class="product-old-price">$990.00</del></h4>
-												<div class="product-rating">
-													<i class="fa fa-star"></i>
-													<i class="fa fa-star"></i>
-													<i class="fa fa-star"></i>
-													<i class="fa fa-star"></i>
-													<i class="fa fa-star"></i>
-												</div>
-												<div class="product-btns">
-													<button class="add-to-wishlist"><i class="fa fa-heart-o"></i><span class="tooltipp">Adicionar a lista de desejos</span></button>
-													<button class="add-to-compare"><i class="fa fa-exchange"></i><span class="tooltipp">Adicionar a comparar</span></button>
-													<button class="quick-view"><i class="fa fa-eye"></i><span class="tooltipp">Veja</span></button>
-												</div>
-											</div>
-											<div class="add-to-cart">
-												<button class="add-to-cart-btn"><i class="fa fa-shopping-cart"></i> Adicionar ao Carrinho</button>
-											</div>
-										</div>
+										<?php
+												}
+											} catch (Exception $th) {
+												echo "Não foi possivel exibir produto";
+												echo $th;
+											}
+										
+										
+											
+											
+										?>
 										<!-- /product -->
 									</div>
 									<div id="slick-nav-1" class="products-slick-nav"></div>
