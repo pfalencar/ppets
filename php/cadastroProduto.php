@@ -12,11 +12,10 @@ if (isset($_POST['nome'])&&isset($_POST['valor'])&&isset($_POST['descricao'])&&i
     $classificacao = $_POST['classificacao'];
     
     $imagem = $_FILES['produto'];
+    $diretorio = "img/";
     $nomeImagem = time().'.jpg';
 
-    if (move_uploaded_file($imagem['tmp_name'], $nomeImagem)) {
-        $tamanhoImg = filesize($nomeImagem); 
-        $mysqlImg = addslashes(fread(fopen($nomeImagem, "r"), $tamanhoImg)); 
+    if (move_uploaded_file($imagem['tmp_name'], $diretorio.$nomeImagem)) { 
 
         $insert = "INSERT INTO produto (nome,valor,descricao,cor,tamanho,categoria,classificacao,produto) values ('$nome','$valor','$descricao','$cor','$tamanho','$categoria','$nomeImagem');";
         if ($conn->query($insert)===true) {

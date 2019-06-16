@@ -66,7 +66,7 @@
 							<?php
 							else:
 							?>
-							<a href="blankLogin.html"><?php echo "Minha Conta"; ?></a>	
+							<a href="blankLogin.php"><?php echo "Minha Conta"; ?></a>	
 							<?php
 							endif;
 							?>

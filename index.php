@@ -1,4 +1,20 @@
-<?php session_start() ?>
+<?php session_start(); 
+function select(){
+	include_once("conexaoSQL.php");
+
+	$sql = "SELECT produto,categoria,classificacao,nome,valor FROM produto";
+
+	try {
+		$result=mysqli_query($conn,$sql);
+		$row=mysqli_fetch_object($result);
+		
+
+	} catch (Exception $th) {
+		echo "Não foi possivel exibir produto";
+		echo $th;
+	}
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -341,6 +357,7 @@
 								<!-- tab -->
 								<div id="tab1" class="tab-pane active">
 									<div class="products-slick" data-nav="#slick-nav-1">
+										
 										<!-- product -->
 										<div class="product">
 											<div class="product-img">
@@ -363,7 +380,6 @@
 													<i class="fa fa-star"></i>
 													<i class="fa fa-star"></i>
 												</div>
-												
 											</div>
 											<div class="add-to-cart">
 												<button class="add-to-cart-btn"><i class="fa fa-shopping-cart"></i> Adicionar ao Carrinho</button>
@@ -371,110 +387,7 @@
 										</div>
 										<!-- /product -->
 
-										<!-- product 2  -->
-										<div class="product">
-											<div class="linkscachorros/product-img">
-												<a href="dogproduct2.html">
-												<img src="./img/acessorioCachorro2.jpg" alt="" width="200" height="200">
-												</a>
-												<div class="product-label">
-													<span class="new">Novo</span>
-												</div>
-											</div>
-											<div class="product-body">
-												<p class="product-category">Category</p>
-												<h3 class="product-name"><a href="#">product name goes here</a></h3>
-												<h4 class="product-price">$980.00 <del class="product-old-price">$990.00</del></h4>
-												<div class="product-rating">
-													<i class="fa fa-star"></i>
-													<i class="fa fa-star"></i>
-													<i class="fa fa-star"></i>
-													<i class="fa fa-star"></i>
-													<i class="fa fa-star-o"></i>
-												</div>
-												
-											</div>
-											<div class="add-to-cart">
-												<button class="add-to-cart-btn"><i class="fa fa-shopping-cart"></i> Adicionar ao Carrinho</button>
-											</div>
-										</div>
-										<!-- /product -->
-
-										<!-- product 3  -->
-										<div class="product">
-											<div class="product-img">
-												<a href="dogproduct3.html">
-												<img src="./img/acessorioCachorro3.jpg" alt="" width="200" height="200">
-												</a>
-												<div class="product-label">
-													<span class="sale">-30%</span>
-												</div>
-											</div>
-											<div class="product-body">
-												<p class="product-category">Category</p>
-												<h3 class="product-name"><a href="#">product name goes here</a></h3>
-												<h4 class="product-price">$980.00 <del class="product-old-price">$990.00</del></h4>
-												<div class="product-rating">
-												</div>
-												
-											</div>
-											<div class="add-to-cart">
-												<button class="add-to-cart-btn"><i class="fa fa-shopping-cart"></i> Adicionar ao Carrinho</button>
-											</div>
-										</div>
-										<!-- /product -->
-
-										<!-- product 4  -->
-										<div class="product">
-											<div class="product-img">
-												<a href="dogproduct4.html">
-												<img src="./img/acessorioCachorro4.jpg" alt="" width="200" height="200">
-												</a>
-											</div>
-											<div class="product-body">
-												<p class="product-category">Category</p>
-												<h3 class="product-name"><a href="#">product name goes here</a></h3>
-												<h4 class="product-price">$980.00 <del class="product-old-price">$990.00</del></h4>
-												<div class="product-rating">
-													<i class="fa fa-star"></i>
-													<i class="fa fa-star"></i>
-													<i class="fa fa-star"></i>
-													<i class="fa fa-star"></i>
-													<i class="fa fa-star"></i>
-												</div>
-											
-											</div>
-											<div class="add-to-cart">
-												<button class="add-to-cart-btn"><i class="fa fa-shopping-cart"></i> Adicionar ao Carrinho</button>
-											</div>
-										</div>
-										<!-- /product -->
-
-										<!-- product 5  -->
-										<div class="product">
-											<div class="product-img">
-												<a href="dogproduct5.html">
-												<img src="./img/acessorioCachorro5.jpg" alt="" width="200" height="200">
-												</a>
-											</div>
-											<div class="product-body">
-												<p class="product-category">Category</p>
-												<h3 class="product-name"><a href="#">product name goes here</a></h3>
-												<h4 class="product-price">$980.00 <del class="product-old-price">$990.00</del></h4>
-												<div class="product-rating">
-													<i class="fa fa-star"></i>
-													<!-- <i class="fa fa-star"></i>
-													<i class="fa fa-star"></i>
-													<i class="fa fa-star"></i>
-													<i class="fa fa-star"></i>-->
-												</div>
-												
-											</div>
-											<div class="add-to-cart">
-												<button class="add-to-cart-btn"><i class="fa fa-shopping-cart"></i> Adicionar ao Carrinho</button>
-											</div>
-										</div>
-										<!-- /product -->
+										
 									</div>
 									<div id="slick-nav-1" class="products-slick-nav"></div>
 								</div>
