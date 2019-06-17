@@ -1,4 +1,7 @@
-<?php session_start() ?>
+<?php 
+session_start(); 
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -237,12 +240,13 @@
 							<input type="submit" value="Cadastrar Endereço" class="btn btn-primary btn-lg btn-block">
 						</form>
 					</div>
-
+					
 					<!-- Order Details -->
 					<div class="col-md-5 order-details">
 						<div class="section-title text-center">
 							<h3 class="title">Seu pedido</h3>
 						</div>
+						
 						<div class="order-summary">
 							<div class="order-col">
 								<div><strong>PRODUTO</strong></div>
@@ -250,23 +254,46 @@
 							</div>
 							<div class="order-products">
 								<div class="order-col">
-									<div>1x Nome do produto vai aqui</div>
-									<div>R$980.00</div>
+								<?php
+								include("php/conexaoSQL.php");
+									$sql = "SELECT nome,valor,quantidade,sum(valor) as soma from carrinho";
+									$result=mysqli_query($conn,$sql);
+									$soma = '';
+									while ($row=mysqli_fetch_object($result)) {
+										if ($row!=null) {
+											$soma = $row->soma;
+								?>
+									<div><?php echo $row->quantidade.'x '.$row->nome; ?></div>
+									<div>R$<?php echo $row->valor; ?></div>
+								<?php
+									}else{
+								?>
+									<div>Nenhum produto no Carrinho</div>
+									<div>R$0.00</div>
+								</div>
+								<?php
+										}
+									}
+								?>
+							</div>
+							</div>
+								<div class="order-col">
+									<div>Frete</div>
+									<div><strong>GRÁTIS</strong></div>
 								</div>
 								<div class="order-col">
-									<div>2x Nome do produto vai aqui</div>
-									<div>R$980.00</div>
+									<div><strong>TOTAL</strong></div>
+									<div><strong class="order-total">R$<?php echo $soma; ?></strong></div>
 								</div>
 							</div>
-							<div class="order-col">
-								<div>Frete</div>
-								<div><strong>GRÁTIS</strong></div>
-							</div>
-							<div class="order-col">
-								<div><strong>TOTAL</strong></div>
-								<div><strong class="order-total">R$2940.00</strong></div>
-							</div>
-						</div>
+							
+									
+								
+								
+								
+								
+						
+						
 						<div class="payment-method">
 							<div class="input-radio">
 								<input type="radio" name="payment" id="payment-1">

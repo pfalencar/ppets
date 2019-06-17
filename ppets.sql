@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: 14-Jun-2019 às 22:16
+-- Generation Time: 17-Jun-2019 às 04:56
 -- Versão do servidor: 5.7.17
 -- PHP Version: 5.6.30
 
@@ -21,6 +21,30 @@ SET time_zone = "+00:00";
 --
 -- Database: `ppets`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura da tabela `carrinho`
+--
+
+CREATE TABLE `carrinho` (
+  `cod_carrinho` int(10) NOT NULL,
+  `cod_produto` int(10) NOT NULL,
+  `nome` varchar(100) NOT NULL,
+  `valor` varchar(100) NOT NULL,
+  `quantidade` int(11) NOT NULL,
+  `imagem` varchar(100) NOT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
+--
+-- Extraindo dados da tabela `carrinho`
+--
+
+INSERT INTO `carrinho` (`cod_carrinho`, `cod_produto`, `nome`, `valor`, `quantidade`, `imagem`) VALUES
+(4, 1, 'teste', '12', 1, '1560703296.jpg'),
+(5, 6, 'teste 6', '9.90', 1, '1560706586.jpg'),
+(6, 2, 'Teste 2', '18.90', 1, '1560704791.jpg');
 
 -- --------------------------------------------------------
 
@@ -144,19 +168,59 @@ CREATE TABLE `pedido` (
 
 CREATE TABLE `produto` (
   `cod_produto` int(11) NOT NULL,
-  `nome` varchar(50) DEFAULT NULL,
-  `valor` decimal(4,2) DEFAULT NULL,
-  `descricao` varchar(100) DEFAULT NULL,
-  `cor` varchar(10) DEFAULT NULL,
-  `tamanho` varchar(10) DEFAULT NULL,
-  `categoria` varchar(30) DEFAULT NULL,
-  `classificacao` varchar(30) DEFAULT NULL,
-  `produto` longblob NOT NULL
+  `nome` varchar(50) CHARACTER SET utf8 COLLATE utf8_unicode_ci DEFAULT NULL,
+  `valor` varchar(10) CHARACTER SET utf8 COLLATE utf8_unicode_ci DEFAULT NULL,
+  `descricao` varchar(100) CHARACTER SET utf8 COLLATE utf8_unicode_ci DEFAULT NULL,
+  `cor` varchar(10) CHARACTER SET utf32 COLLATE utf32_unicode_ci DEFAULT NULL,
+  `tamanho` varchar(10) CHARACTER SET utf8 COLLATE utf8_unicode_ci DEFAULT NULL,
+  `categoria` varchar(30) CHARACTER SET utf8 COLLATE utf8_unicode_ci DEFAULT NULL,
+  `classificacao` varchar(30) CHARACTER SET utf8 COLLATE utf8_unicode_ci DEFAULT NULL,
+  `produto` varchar(50) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+
+--
+-- Extraindo dados da tabela `produto`
+--
+
+INSERT INTO `produto` (`cod_produto`, `nome`, `valor`, `descricao`, `cor`, `tamanho`, `categoria`, `classificacao`, `produto`) VALUES
+(1, 'teste', '12.00', 'aaaaaaa', 'vermelho', '12cm', 'limpeza', 'cachorro', '1560703296.jpg'),
+(2, 'Teste 2', '18.90', 'Testeaaaaaa', 'Azul', '15cm', 'alimentacao', 'gato', '1560704791.jpg'),
+(3, 'teste 3', '20.00', 'testeaaaaaaa', 'verde', '12cm', 'limpeza', 'cachorro', '1560705798.jpg'),
+(4, 'teste 4', '25.90', 'testecccccc', 'amarelo', '20cm', 'alimentacao', 'roedor', '1560706496.jpg'),
+(5, 'teste 5', '19.90', 'mmmmmmmmmm', 'azul', '20cm', 'acessorios', 'peixe', '1560706535.jpg'),
+(6, 'teste 6', '9.90', 'aaaaaaaaaaaa', 'colorido', '5cm', 'lazer', 'cachorro', '1560706586.jpg'),
+(7, 'produto1', '18.90', 'aaaaaaaaaaaa', 'vermelho', '18cm', 'lazer', 'cachorro', '1560713721.jpg');
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura da tabela `teste`
+--
+
+CREATE TABLE `teste` (
+  `cod_img` int(30) NOT NULL,
+  `imagem` varchar(50) NOT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
+--
+-- Extraindo dados da tabela `teste`
+--
+
+INSERT INTO `teste` (`cod_img`, `imagem`) VALUES
+(37, '1560655619.jpg'),
+(36, '1560655601.jpg'),
+(34, '1560655452.jpg'),
+(35, '1560655555.jpg');
 
 --
 -- Indexes for dumped tables
 --
+
+--
+-- Indexes for table `carrinho`
+--
+ALTER TABLE `carrinho`
+  ADD PRIMARY KEY (`cod_carrinho`);
 
 --
 -- Indexes for table `cliente`
@@ -206,9 +270,20 @@ ALTER TABLE `produto`
   ADD PRIMARY KEY (`cod_produto`);
 
 --
+-- Indexes for table `teste`
+--
+ALTER TABLE `teste`
+  ADD PRIMARY KEY (`cod_img`);
+
+--
 -- AUTO_INCREMENT for dumped tables
 --
 
+--
+-- AUTO_INCREMENT for table `carrinho`
+--
+ALTER TABLE `carrinho`
+  MODIFY `cod_carrinho` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 --
 -- AUTO_INCREMENT for table `cliente`
 --
@@ -218,7 +293,17 @@ ALTER TABLE `cliente`
 -- AUTO_INCREMENT for table `endereco_entrega`
 --
 ALTER TABLE `endereco_entrega`
-  MODIFY `cod_endereco_entrega` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;COMMIT;
+  MODIFY `cod_endereco_entrega` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+--
+-- AUTO_INCREMENT for table `produto`
+--
+ALTER TABLE `produto`
+  MODIFY `cod_produto` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+--
+-- AUTO_INCREMENT for table `teste`
+--
+ALTER TABLE `teste`
+  MODIFY `cod_img` int(30) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=38;COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;

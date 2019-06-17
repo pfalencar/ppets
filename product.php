@@ -209,8 +209,14 @@ include_once('php/conexaoSQL.php');
 		$sql = "SELECT * from produto where cod_produto = $id";
 		$result=mysqli_query($conn,$sql);
 		$row=mysqli_fetch_object($result);
-		
+
+		$nome = $row->nome;
+		$valor = $row->valor;
+		$img = $row->produto;
+		$cod = $row->cod_produto;
+
 		?>
+		
 
 		<!-- SECTION -->
 		<div class="section">
@@ -286,7 +292,7 @@ include_once('php/conexaoSQL.php');
 										<span class="qty-down">-</span>
 									</div>
 								</div>
-								<button class="add-to-cart-btn"><a href="checkout.php"><i class="fa fa-shopping-cart"></i> adicionar ao carrinho</a></button>
+								<button class="add-to-cart-btn"><a href="php/carrinho.php?id=<?php echo $cod; ?>&&nome=<?php echo $nome; ?>&&valor=<?php echo $valor; ?>&&img=<?php echo $img; ?>"><i class="fa fa-shopping-cart"></i> adicionar ao carrinho</a></button>
 							</div>
 
 							<ul class="product-btns">

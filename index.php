@@ -373,7 +373,7 @@
 											</div>
 											<div class="product-body">
 												<p class="product-category"><?php echo $row->categoria;?></p>
-												<h3 class="product-name"><a href="product.php"><?php echo $row->nome;?></a></h3>
+												<h3 class="product-name"><a href="product.php?id=<?php echo $row->cod_produto;?>"><?php echo $row->nome;?></a></h3>
 												<h4 class="product-price">R$ <?php echo $row->valor;?></h4>
 												<div class="product-rating">
 													<i class="fa fa-star"></i>
@@ -467,7 +467,7 @@
 											</div>
 											<div class="product-body">
 												<p class="product-category"><?php echo $row->categoria;?></p>
-												<h3 class="product-name"><a href="product.php"><?php echo $row->nome;?></a></h3>
+												<h3 class="product-name"><a href="product.php?id=<?php echo $row->cod_produto;?>"><?php echo $row->nome;?></a></h3>
 												<h4 class="product-price">R$ <?php echo $row->valor;?></h4>
 												<div class="product-rating">
 													<i class="fa fa-star"></i>
@@ -561,7 +561,7 @@
 											</div>
 											<div class="product-body">
 												<p class="product-category"><?php echo $row->categoria;?></p>
-												<h3 class="product-name"><a href="product.php"><?php echo $row->nome;?></a></h3>
+												<h3 class="product-name"><a href="product.php?id=<?php echo $row->cod_produto;?>"><?php echo $row->nome;?></a></h3>
 												<h4 class="product-price">R$ <?php echo $row->valor;?></h4>
 												<div class="product-rating">
 													<i class="fa fa-star"></i>
@@ -658,7 +658,7 @@
 											</div>
 											<div class="product-body">
 												<p class="product-category"><?php echo $row->categoria;?></p>
-												<h3 class="product-name"><a href="product.php"><?php echo $row->nome;?></a></h3>
+												<h3 class="product-name"><a href="product.php?id=<?php echo $row->cod_produto;?>"><?php echo $row->nome;?></a></h3>
 												<h4 class="product-price">R$ <?php echo $row->valor;?></h4>
 												<div class="product-rating">
 													<i class="fa fa-star"></i>
@@ -761,7 +761,7 @@
 												</div>
 											</div>
 											<div class="add-to-cart">
-												<button class="add-to-cart-btn"><i class="fa fa-shopping-cart"></i> Adicionar ao Carrinho</button>
+												<button class="add-to-cart-btn" ><i class="fa fa-shopping-cart"></i> Adicionar ao Carrinho</button>
 											</div>
 										</div>
 										<?php
@@ -770,12 +770,10 @@
 												echo "Não foi possivel exibir produto";
 												echo $th;
 											}
-										
-										
-											
-											
 										?>
 										<!-- /product -->
+
+										
 									</div>
 									<div id="slick-nav-1" class="products-slick-nav"></div>
 								</div>
